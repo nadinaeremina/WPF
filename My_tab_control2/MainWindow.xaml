@@ -1,0 +1,27 @@
+﻿<Window x:Class="My_tab_control2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_tab_control2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="594.783" Width="809.13">
+    <Grid>
+        <TabControl Margin="5,5,-2,-154" TabStripPlacement="Left" >
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="3" >Image and Text Tab Title</TextBlock>
+                        <Image Source="1.jpg" Stretch="Fill" Height="376" Width="316" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Margin="3">
+                    <CheckBox Margin="3">Setting One</CheckBox>
+                    <CheckBox Margin="3">Setting Two</CheckBox>
+                    <CheckBox Margin="3">Setting Three</CheckBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Tab Two"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>

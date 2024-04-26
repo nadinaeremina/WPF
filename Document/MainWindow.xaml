@@ -1,0 +1,281 @@
+﻿<Window x:Class="Document.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Document"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1150">
+    <FlowDocument>
+        <Paragraph>
+            <Image Height="167" Width="500" Source="1.PNG" Stretch="Fill"/>
+        </Paragraph>
+        <Paragraph/>
+        <Paragraph FontSize="22" TextAlignment="Center">
+            <Bold>Microsoft: история создания и успеха Майкрософт</Bold>
+        </Paragraph >
+        <Paragraph FontStyle="Oblique">
+            Полная история создания и развития Microsoft. Узнайте подробно в чем секрет успеха Майкрософт и как ей удалось стать лидером рынка. Интересные факты, книги и фильмы
+        </Paragraph>
+        <Paragraph>
+            <Span Foreground="Blue">Microsoft</Span> - это компания, которая сыграла в становлении современного общества весьма значимую роль. Ее
+            <Span Foreground="Blue">История</Span> начиналась несколько десятилетий назад с пыльного гаража, программистов – любителей и научно-популярной статьи в журнале Popular Electronics. И кто бы мог подумать, что юношеский максимализм двух энтузиастов способен настолько кардинально изменить наш мир.
+            <LineBreak/>
+            Сегодня команда
+            <Span Foreground="Blue">https://lindeal.com</Span> восстановить хронологию событий пути Microsoft к всемирному признанию, вспомнить ключевые моменты, наиболее востребованные и провальные проекты бренда.
+        </Paragraph>
+        <Paragraph FontSize="22" TextAlignment="Center">
+            <Bold>Что представляет собой корпорация Microsoft: крупная IT компания</Bold>
+        </Paragraph>
+        <Paragraph>
+            Microsoft Corporation – это одна из крупнейших транснациональных корпораций в мире, специализирующаяся на разработке программного обеспечения для персональных компьютеров, игровых приставок, планшетных компьютеров, мобильных устройств и другой техники. Штаб – квартира компании находится в городе Редмонд, штат Вашингтон,
+            <Span Foreground="Blue">США</Span> . Штат сотрудников составляет 145 тысяч человек. По итогам 2018 года, деловой журнал
+            <Span Foreground="Blue">Forbes</Span> включил Microsoft в список 500 лучших работодателей мира.
+        </Paragraph>
+        <Paragraph>
+            <Image  Height="198" Width="420" Source="2.PNG" Stretch="Fill"/>
+        </Paragraph>
+        <Paragraph>
+             На сегодняшний день главным продуктом бренда является семейство операционных систем Windows. Подразделения корпорации также выпускают аксессуары для ПК – клавиатуры, компьютерные мыши, игровые консоли
+            <Span Foreground="Blue">Xbox</Span> . Продукция Майкрософт успешно продается более, чем в 80 странах мира, ее программы переведены на 45 языков.
+        </Paragraph>
+        <Paragraph FontSize="22" TextAlignment="Center">
+            <Bold>Основание Microsoft: почему создали Майкософт</Bold>
+        </Paragraph>
+        <Paragraph>
+            У истоков корпорации стоят два школьных друга -
+            <Span Foreground="Blue">Билл Гейтс</Span> и Пол Аллен. Помимо того, что каждый из них обладал навыками программирования, Гейтса отличали еще и великолепные коммерческие качества. Сразу после школы, он вместе с приятелями открыл небольшую фирму Traf-O-Data, которая занималась анализом трафика на дорогах и его отображением в режиме реального времени на специальных графиках. В сумме этот проект принес Биллу чуть более 20 тысяч долларов и позволил получить бесценный опыт управления собственным бизнесом.
+        </Paragraph>
+        <Paragraph>
+            <Image Height="150" Width="450" Stretch="Fill" Source="3.PNG"/>
+        </Paragraph>
+        <Paragraph>
+            В начале 70-х гг. Аллен, прочитавший статью в журнале Popular Electronics о микрокомпьютере Altair 8800, понимает, что без приличного языка программирования данная инновация останется бесполезной. Поэтому вместе с Гейтсом они связываются с руководством компании MITS (Micro Instrumentation and Telemetry Systems), придумавшей Altair, с предложением о продаже якобы готового интерпретатора.
+        </Paragraph>
+        <Paragraph>
+            <Image  Height="270"  Width="450" Stretch="Fill" Source="4.PNG"/>
+        </Paragraph>
+        <Paragraph>
+            На самом деле друзья несколько приукрасили факты. На тот момент, у них был недоработанный интерпретатор языка программирования Basic, который они создавали в процессе работы над проектом Traf-O-Data. Им нужно было в кратчайшие сроки доработать его и адаптировать его к мини-компьютеру Altair. По сути, на тот момент в мире не существовало ни одного языка программирования, чем собственно и воспользовались школьные приятели.
+            <LineBreak/>
+            Созданный ими интерпретатор не имел аналогов, став революционной разработкой для того времени и положив начало программированию в том виде, в котором оно существует на сегодняшний день. В итоге молодым предпринимателям все же удалось подписать контракт с MITS. Перфокарты (носители информации) с Бэйсик вышли в продажу спустя несколько месяцев по цене 150 долларов за штуку.
+        </Paragraph>
+        <Paragraph FontSize="22" TextAlignment="Center">
+            <Bold>История Microsoft: хронология событий</Bold>
+        </Paragraph>
+        <Paragraph>
+            Удачное сотрудничество с MITS натолкнуло Гейтса и Аллена на идею о создании собственной компании. Дата основания Microsoft: 4 апреля 1975 года в Альбукерке, Нью-Мексико, США. Первоначально она называлась Micro-soft, но спустя четыре года дефис убрали. Менеджером по продажам стала мать Гейтса, а сами программисты активно работали над созданием своего второго языка программирования – FORTRAN, который поступил в продажу в 1977 году.
+        </Paragraph>
+        <Paragraph>
+            <Image Height="200" Width="500" Source="5.PNG" Stretch="Fill"/>
+        </Paragraph>
+        <Paragraph>
+            В 1979 Пол Аллен получает престижную премию ICP (учреждена в 1981 году, с целью отметить заслуги людей, чьи усилия привели к формированию и развитию компьютерной индустрии) в размере одного миллион долларов за разработку язык программирования BASIC 8080. А в 1980 году компания IBM предлагает Microsoft заняться разработкой операционной системы для выпускаемых ею персональных компьютеров.
+            <LineBreak/>
+            Для этого Аллен и Гейтс приобретают уже существовавшую на тот момент ОС Seattle Computer и начинают ее оптимизацию под ПК IBM. Для работы над проектом приглашается создатель ОС Seattle Computer - Тим Паттерсон. Согласно контракту, предприниматели могли рассчитывать на получение определенного процента с каждого проданного компьютера с разработанной ими 16-битной операционной системой MS-DOS. Летом 1985 года Microsoft становится публичной компанией, Гейтс занимает должность председателя правления, а Пол Аллен становится исполнительным вице-президентом.
+        </Paragraph>
+        <Paragraph>
+            <Image Height="200" Stretch="Fill" Width="400" Source="7.PNG"/>
+        </Paragraph>
+        <List MarkerStyle="Disc">
+            <ListItem>
+                <Paragraph>
+                    1987 год - выпущена первая версия ОС Windows.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    1992 год – открытие офиса в России. Спустя год корпорация открывает собственное представительство в Украине.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    1993 год – компания продает порядка 1 миллиона экземпляров собственной ОС в месяц.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    1995 год - выпуск ОС Windows 95 и браузера Internet Explorer.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    1998 год – Майкрософт покупает пакет акций
+                    <Span Foreground="Blue">Apple</Span> на сумму в 150 млн. долларов и соглашается на разработку новых версий Office и Internet Explorer для Macintosh.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    2001 год - релиз и запуск продаж игровых консолей Xbox, презентация легендарной Microsoft Windows XP.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    2009 год - штраф $388 млн. в пользу сингапурской компании Uniloc за нарушения, допущенные Майкрософт в области патентного законодательства. По заявлению разработчика из Сингапура механизм покупки и введения кода, для разблокировки и использования программных продуктов, был создан и запатентован Uniloc в 1992 году.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    2013 год - масштабная реорганизация, в результате которой было создано четыре ключевые подразделения компании.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    2015 год – компания проводит масштабную реорганизацию и тратит на обновление штаб – квартиры несколько миллиардов долларов. Начиная с этого года в корпорации работает специальный центра защиты бизнеса от кибератак.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    2018 год – Майкрософт вкладывает 5 миллиардов долларов в проект по разработке Интернета вещей (инновационная
+                    <Span Foreground="Blue">Технология</Span> , предусматривающая подключение к Интернету вещей, оснащенных специальными технологиями для удаленного управления ими через Программное обеспечение).
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    <Span Foreground="Blue">Март</Span> 2020 года – Билл Гейтс покидает совет директоров. Свое решение он обосновывает тем, что планирует сосредоточиться на благотворительности.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    В августе 2021 года руководство корпорации на встрече с президентом США, Байденом, подписывает соглашение об
+                    <Span Foreground="Blue">Инвестиции</Span> в
+                    <Span Foreground="Blue">Кибербезопасность</Span> государства 30 миллиардов долларов.
+                </Paragraph>
+            </ListItem>
+            <ListItem>
+                <Paragraph>
+                    В сентябре 2021 года в Нью-Йорке состоялась встреча главы Украины Владимира Зеленского и президента Microsoft Бреда Смита (Brad Smith). На встрече обсуждались пути усиления партнерства Украины с Microsoft и реализации ряда совместных проектов с целью масштабной цифровой трансформации страны. Примечательно, что практически одновременно с этой встречей в сети появляется информации о том, американская компания планирует сократить собственный штат в России, как минимум в три раза - с 1000 до 300 человек.
+                </Paragraph>
+            </ListItem>
+        </List>
+        <Paragraph FontSize="22" TextAlignment="Center" Foreground="Blue">
+            <Bold>Microsoft</Bold>
+        </Paragraph >
+        <Table TextAlignment="Center">
+            <TableRowGroup>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            ПО
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph  Background="LightGray">
+                            Windows (Основные компоненты) • Windows Phone • Office • Visual Studio • Expression • Silverlight • Dynamics • Money • Encarta • Student • Works • Microsoft Security Essentials
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Серверное ПО
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph>
+                            Шаблон:D- • SQL Server • IIS • Exchange • BizTalk • Commerce • Forefront TMG • Systems Management • System Center • Licensing Services
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Технологии
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph  Background="LightGray">
+                            Active Directory • DirectX • .NET • Windows Media • PlaysForSure • Application Virtualization
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Интернет
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph>
+                            Основные компоненты • Microsoft Office Live • MSNBC • Шаблон:Нп5 • MSN • Bing • Bing Bar • Edge • EntityCube • Hotmail • Windows Live Messenger • Сферы Windows Live • MSN Groups • Windows Live ID • Microsoft Ignition • CodePlex • Microsoft HealthVault • Skype • OneDrive • Vine • Zune Marketplace • Microsoft Security Essentials
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Игры
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph  Background="LightGray">
+                            Microsoft Studios • Шаблон:Нп5 • XNA • Xbox • Xbox 360 (S) • Xbox One • Kinect • Xbox Live (Arcade • Marketplace) • Games for Windows (Live • Tray and Play) • Live Anywhere
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Аппаратное обеспечение
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph>
+                            Surface • Zune (4, 8 • 30 • 80 • HD) • MSN TV • Natural Keyboard • IntelliType • IntelliPoint • LifeCam • LifeChat • SideWinder • UMPC • Fingerprint • Audio • Cordless Phone • Pocket PC • RoundTable • Response Point • KINy • Encarta • Student • Works • Microsoft Security Essentials
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Образование
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph  Background="LightGray">
+                            MTA • MCP • MCTS • MCITP • MSDN • MSDNAA • MSCA • Microsoft Press • MVP • Student Partners
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Лицензирование
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph>
+                            Лицензионная политика • Client Access License • Shared source
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Подразделения
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph  Background="LightGray">
+                            Microsoft Research • MSN • Macintosh Business Unit • Microsoft Studios • Майкрософт Рус
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        <Paragraph>
+                            Совет директоров
+                        </Paragraph>
+                    </TableCell>
+                    <TableCell ColumnSpan="3">
+                        <Paragraph >
+
+                            Балмер • Кэш • Дублон • Гейтс • Гилмартин • Хастингс • Маркурдт • Наделла • Носки • Панке • Ширли
+                        </Paragraph>
+                    </TableCell>
+                </TableRow>
+            </TableRowGroup>
+        </Table>
+
+    </FlowDocument>
+</Window>

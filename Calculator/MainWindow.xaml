@@ -1,0 +1,52 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button x:Name="button_CE" Grid.Column="0" Grid.Row="2" Click="button_CE_Click_1">CE</Button>
+                <Button x:Name="button_C" Grid.Column="1" Grid.Row="2" Click="button_C_Click">C</Button>
+                <Button x:Name="button_clear_1" Grid.Column="2" Grid.Row="2" Content="&lt;" Click="button_clear_1_Click_1"></Button>
+                <Button x:Name="button_divide" Grid.Column="4" Grid.Row="2" Click="Button_operation">/</Button>
+                <Button x:Name="button_7" Grid.Column="0" Grid.Row="3" Click="Button_click">7</Button>
+                <Button x:Name="button_8" Grid.Column="1" Grid.Row="3" Click="Button_click">8</Button>
+                <Button x:Name="button_9" Grid.Column="2" Grid.Row="3" Click="Button_click">9</Button>
+                <Button x:Name="button_4" Grid.Column="0" Grid.Row="4" Click="Button_click">4</Button>
+                <Button x:Name="button_5" Grid.Column="1" Grid.Row="4" Click="Button_click">5</Button>
+                <Button x:Name="button_6" Grid.Column="2" Grid.Row="4" Click="Button_click">6</Button>
+                <Button x:Name="button_1" Grid.Column="0" Grid.Row="5" Click="Button_click">1</Button>
+                <Button x:Name="button_2" Grid.Column="1" Grid.Row="5" Click="Button_click">2</Button>
+                <Button x:Name="button_3" Grid.Column="2" Grid.Row="5" Click="Button_click">3</Button>
+                <Button x:Name="button_0" Grid.Column="1" Grid.Row="6" Click="Button_click">0</Button>
+                <Button x:Name="button_multiply" Grid.Column="3" Grid.Row="3" Click="Button_operation">*</Button>
+                <Button x:Name="button_minus" Grid.Column="3" Grid.Row="4" Click="Button_operation">-</Button>
+                <Button x:Name="button_plus" Grid.Column="3" Grid.Row="5" Click="Button_operation">+</Button>
+                <Button x:Name="button_equal" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Click="button_equal_Click_1">=</Button>
+                <Button x:Name="button_point" Grid.Column="0" Grid.Row="6" Click="Button_click">.</Button>
+                <TextBox x:Name="current" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" TextAlignment="Right"/>
+                <TextBox x:Name="result" Grid.Column="0" Grid.Row="1" Text="0" Grid.ColumnSpan="4" TextAlignment="Right"/>
+            </Grid>
+        </DockPanel>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="-84,40,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
