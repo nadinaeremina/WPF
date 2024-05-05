@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="594.783" Width="809.13">
     <Grid>
-        <TabControl Margin="5,5,-2,-154" TabStripPlacement="Left" >
+        <TabControl Margin="5,5,-2,17" TabStripPlacement="Left" >
             <TabItem>
                 <TabItem.Header>
                     <StackPanel>

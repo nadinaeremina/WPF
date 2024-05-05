@@ -9,11 +9,11 @@
     <Grid>
         <!--Связываем:-->
         <!--Элемент управления - свойство класса-->
-        <!--<Grid.Resources>
+        <Grid.Resources>
             <local:Tovar x:Key="TovarSource"/>
         </Grid.Resources>
         <TextBox Width="100" Height="50" Name="tb_1" Background="AliceBlue" Text="{Binding Path=Name, Mode=OneWay,
-        Source={StaticResource TovarSource}}"/>-->
+        Source={StaticResource TovarSource}}"/>
     
         <!--Привязка обьекта класса-->
         <!--<Grid.Resources>
@@ -71,13 +71,13 @@
         </StackPanel>-->
         
         <!--из приемника в источник-->
-        <StackPanel>
+        <!--<StackPanel>
             <ListBox x:Name="lb1">
                 <ListBoxItem>Igor Ivanov</ListBoxItem>
                 <ListBoxItem>Petr Petrov</ListBoxItem>
                 <ListBoxItem>Egor Pyatkin</ListBoxItem>
             </ListBox>
             <TextBox Text="{Binding ElementName=lb1, Path=SelectedItem.Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>

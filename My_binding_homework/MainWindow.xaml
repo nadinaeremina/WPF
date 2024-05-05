@@ -1,0 +1,32 @@
+﻿<Window x:Class="My_binding_homework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_binding_homework"
+        mc:Ignorable="d"
+        Title="Склад" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,1,0">
+        <StackPanel Orientation="Horizontal" Margin="0,0,-4,0">
+            <StackPanel Width="399">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Список товаров:</TextBlock>
+                </StackPanel>
+                <ListBox x:Name="listBox1">
+                    <ListBoxItem>Milky Way</ListBoxItem>
+                    <ListBoxItem>Snikers</ListBoxItem>
+                    <ListBoxItem>Twix</ListBoxItem>
+                    <ListBoxItem>Nuts</ListBoxItem>
+                    <ListBoxItem>Baunti</ListBoxItem>
+                    <ListBoxItem>Mars</ListBoxItem>
+                </ListBox>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Vertical" Height="118" Width="395">
+                    <TextBlock Height="22">Редактировать:</TextBlock>
+                    <TextBox x:Name="txt_edit" Background="AliceBlue" Text = "{Binding ElementName=listBox1, Path=SelectedItem.Content , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="385"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

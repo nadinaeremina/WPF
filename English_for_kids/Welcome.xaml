@@ -1,0 +1,43 @@
+﻿<Window x:Class="English_for_kids.Welcome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:English_for_kids"
+        mc:Ignorable="d"
+        Title="Welcome" Height="488.985" Width="820.05" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,14,3">
+        <TabControl Margin="5,5,-2,17" TabStripPlacement="Top">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Width="352">
+                        <TextBlock Margin="3" >Animals</TextBlock>
+                        <Image Source="animals.jpg" Stretch="Fill" Height="208" Margin="0,0,12,0" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Margin="3">
+                    <TextBlock TextAlignment="Center">tfd5yhtfdyhtryhtr5yh5thyththjutghujtyuhjtyfhjt</TextBlock>
+                    <CheckBox Margin="3">Setting One</CheckBox>
+                    <CheckBox Margin="3">Setting Two</CheckBox>
+                    <CheckBox Margin="3">Setting Three</CheckBox>
+                    <Button Name="btn_go1" Click="btn_go1_Click">GO!</Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem Margin="9,3,-191,-2">
+                <TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Margin="3" >Plants</TextBlock>
+                        <Image Source="plants.jpg" Stretch="Fill" Height="183" Width="321" />
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Margin="3">
+                    <TextBlock TextAlignment="Center">tfd5yhtfdyhtryhtr5yh5thyththjutghujtyuhjtyfhjt</TextBlock>
+                    <CheckBox Margin="3">Setting One</CheckBox>
+                    <CheckBox Margin="3">Setting Two</CheckBox>
+                    <CheckBox Margin="3">Setting Three</CheckBox>
+                    <Button Name="btn_go2" Click="btn_go2_Click">GO!</Button>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Name="main" x:Class="English_for_kids.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:English_for_kids"
+        mc:Ignorable="d"
+        Title="LEARNING" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel>
+            <Image DockPanel.Dock="Top" Height="300" Margin="2,18,2,0" Source="English.jpg" Stretch="Fill"/>
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock Width="76">Loading</TextBlock>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <Grid Width="485">
+                        <ProgressBar Name="p_bar"/>
+                        <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" TextAlignment="Center" Height="16" VerticalAlignment="Bottom" Margin="109,0,-237,0"/>
+                    </Grid>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <Button Name="btn_start" Click="btn_start_Click">START</Button>
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
+       
+    </Grid>
+</Window>
