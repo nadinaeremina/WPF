@@ -8,25 +8,30 @@
         Title="Go1" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <Image Source="lion.jpg" Width="439"></Image>
+            <Image x:Name="my_image" Source="lion.jpg" Width="439"></Image>
             <StackPanel Orientation="Vertical" Width="295">
-                <TextBlock>1 question of 5</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="now"/>
+                    <TextBlock> question of 5</TextBlock>
+                </StackPanel>
                 <TextBlock>Choose the correct answer</TextBlock>
-                <ListBox>
-                   
+                <ListBox x:Name="answer">
                 </ListBox>
+                <Button Click="Button_Click">push</Button>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>right answers</TextBlock>
-                    <TextBlock Name="txt_right">8</TextBlock>
+                    <TextBlock Name="txt_right"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>wrong answers</TextBlock>
-                    <TextBlock Name="txt_wrong">7</TextBlock>
+                    <TextBlock Name="txt_wrong"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>time left</TextBlock>
-                    <TextBlock Name="txt_timer">66</TextBlock>
+                    <TextBlock Name="txt_timer"></TextBlock>
                 </StackPanel>
+                <Button Click="Button_Click_1">Continue</Button>
+                <Button>Break</Button>
             </StackPanel>
         </StackPanel>
     </Grid>
