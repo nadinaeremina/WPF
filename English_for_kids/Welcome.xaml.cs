@@ -19,9 +19,10 @@ namespace English_for_kids
     /// </summary>
     public partial class Welcome : Window
     {
-        public Welcome()
+        public Welcome(string name)
         {
             InitializeComponent();
+            welcome.Title = $"Welcome, {name}!";
         }
 
         private void btn_go1_Click(object sender, RoutedEventArgs e)

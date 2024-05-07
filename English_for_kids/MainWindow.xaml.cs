@@ -48,7 +48,7 @@ namespace English_for_kids
         {
             Settings f1 = new Settings();
             f1.ShowDialog();
-            main.Close();
+            Close();
         }
     }
 }

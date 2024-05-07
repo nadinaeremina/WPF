@@ -7,23 +7,14 @@
         mc:Ignorable="d"
         Title="LEARNING" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DockPanel>
-            <Image DockPanel.Dock="Top" Height="300" Margin="2,18,2,0" Source="English.jpg" Stretch="Fill"/>
-            <StatusBar DockPanel.Dock="Bottom">
-                <StatusBarItem>
-                    <TextBlock Width="76">Loading</TextBlock>
-                </StatusBarItem>
-                <StatusBarItem>
-                    <Grid Width="485">
-                        <ProgressBar Name="p_bar"/>
-                        <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" TextAlignment="Center" Height="16" VerticalAlignment="Bottom" Margin="109,0,-237,0"/>
-                    </Grid>
-                </StatusBarItem>
-                <StatusBarItem>
-                    <Button Name="btn_start" Click="btn_start_Click">START</Button>
-                </StatusBarItem>
-            </StatusBar>
-        </DockPanel>
-       
+        <WrapPanel Width="646">
+            <Image Height="363" Source="English.jpg" Stretch="Fill"  Width="641"/>
+            <TextBlock Width="76" FontSize="16" Foreground="Blue" FontStyle="Italic">Loading...</TextBlock>
+            <Grid Width="485">
+                <ProgressBar Name="p_bar" />
+                <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" VerticalAlignment="Bottom" TextAlignment="Center" />
+            </Grid>
+            <Button Name="btn_start" Click="btn_start_Click" Width="81" Height="20" Background="{x:Null}" Foreground="Red" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic">START</Button>
+        </WrapPanel>
     </Grid>
 </Window>

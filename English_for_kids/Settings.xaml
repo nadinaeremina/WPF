@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Autorization" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,472,21">
-        <StackPanel Orientation="Horizontal" Margin="0,0,-473,0" >
-            <MediaElement LoadedBehavior="Play" SpeedRatio="1" IsMuted="False" Source="Animation1.gif" Margin="0,0,0,290" Width="169"/>
-            <StackPanel Orientation="Vertical">
-                <TextBlock>Welcome</TextBlock>
-                <TextBlock>Enter your name</TextBlock>
-                <TextBox></TextBox>
-                <TextBlock>Enter your name</TextBlock>
-                <TextBox></TextBox>
-                <Button Click="Button_Click">Save</Button>
+        <WrapPanel Margin="0,0,-471,0">
+            <StackPanel Orientation="Horizontal">
+                <Image Width="559" Source="play.jpg"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Width="205">
+                    <TextBlock Height="21">Введите имя:</TextBlock>
+                    <TextBox x:Name="txt_name" Height="39" Margin="0,0,-1,0"></TextBox>
+                    <TextBlock Height="22">Введите возраст:</TextBlock>
+                    <TextBox x:Name="txt_age" Height="38"></TextBox>
+                    <Button  Foreground="Blue" Click="Button_Click" Margin="53,0,38,0" Height="48" Background="Yellow" FontStyle="Italic" BorderThickness="2" FontFamily="Swis721 Hv BT" FontSize="16">Сохранить</Button>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

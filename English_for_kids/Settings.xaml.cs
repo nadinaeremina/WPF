@@ -26,11 +26,27 @@ namespace English_for_kids
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Welcome f2 = new Welcome();
+            int chislo;
+            if (txt_name.Text.Length > 0)
+            {
+                if (txt_age.Text.Length > 0)
+                {
+                    if (int.TryParse(txt_age.Text, out chislo) == true &&  Convert.ToInt32(txt_age.Text) > 3 && Convert.ToInt32(txt_age.Text) < 18)
+                    {
+                        Welcome f2 = new Welcome(txt_name.Text);
 
-            f2.ShowDialog();
-            //f2.Show();
-            Close();
+                        f2.ShowDialog();
+                        //f2.Show();
+                        Close();
+                    }
+                    else
+                        MessageBox.Show("Incorrect age!");
+                }
+                else
+                    MessageBox.Show("Please, enter your age!");
+            }
+            else
+                MessageBox.Show("Please, enter your name!");
         }
     }
 }
