@@ -30,8 +30,7 @@
                     <TextBlock>time left</TextBlock>
                     <TextBlock Name="txt_timer"></TextBlock>
                 </StackPanel>
-                <Button Click="Button_Click_1">Continue</Button>
-                <Button>Break</Button>
+                <Button Click="Button_Click_1" >Break</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

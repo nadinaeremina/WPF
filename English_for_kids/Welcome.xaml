@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
-        mc:Ignorable="d" Height="488.985" Width="820.05" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" Height="500.985" Width="742.05" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,14,3">
-        <TabControl Margin="5,5,-2,17" TabStripPlacement="Bottom">
+        <TabControl Margin="11,5,-8,17" TabStripPlacement="Bottom">
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Width="352">
@@ -16,22 +16,28 @@
                 </TabItem.Header>
                 <WrapPanel Margin="3">
                     <StackPanel>
+                        <TextBlock TextAlignment="Center" Foreground="Green" FontFamily="Times New Roman" FontStyle="Italic" FontSize="14">Настройте параметры:</TextBlock>
                         <CheckBox x:Name="check_time" Margin="3">Игра на время</CheckBox>
-                        <CheckBox Margin="3">Ограниченное число ошибок</CheckBox>
+                        <CheckBox x:Name="wrongs" Margin="3">Ограниченное число ошибок</CheckBox>
+                        <CheckBox x:Name="onemore_try" Margin="3">Дополнительная попытка</CheckBox>
                     </StackPanel>
                     <StackPanel>
                         <TextBlock>Если вы выберите "Игра на время" - у вас будет лишь 30 секунд, чтобы ответить на все вопросы. Если нет - то 1 минута.</TextBlock>
-                        <TextBlock>Если вы выберите "Ограниченное число ошибок" - у вас будет возможность сделать максимум 3 ошибки. Если нет - сколько угодно.</TextBlock>
+                        <TextBlock Text="Если вы выберите &quot;Ограниченное число ошибок&quot; - у вас будет возможность сделать 3 ошибки. Если нет - сколько угодно."/>
+                        <TextBlock><Run Text="Если вы выберите &quot;Дополнительная попытка&quot; - у вас будет"/><Run Text=" "/><Run Text="две попытки при ответе на вопрос. Если нет - только одну."/></TextBlock>
                     </StackPanel>
-                    <Button x:Name="btn_go1" Click="btn_go1_Click" Margin="334,0,332,0" Background="Green" Foreground="White" Content="Начали!" Height="75" Width="115"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btn_go1" Click="btn_go2_Click" Background="Green" Foreground="White" Height="42" Width="88">Начали!</Button>
+                        <Button Name="btn_exit1" Width="101" Height="32" Foreground="Red" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic" Click="btn_exit_Click">EXIT</Button>
+                    </StackPanel>
                     <TextBlock TextAlignment="Center" Foreground="Green" FontSize="20" FontStyle="Italic" FontFamily="Times New Roman" VerticalAlignment="Center" Width="782">Выберите категорию:</TextBlock>
                 </WrapPanel>
             </TabItem>
-            <TabItem Margin="9,3,-191,-2">
+            <TabItem Margin="9,0,-23,-2">
                 <TabItem.Header>
                     <StackPanel>
                         <TextBlock Margin="3" >Растения</TextBlock>
-                        <Image Source="plants.jpg" Stretch="Fill" Height="183" Width="321" />
+                        <Image Source="plants.jpg" Stretch="Fill" Height="210" Width="316" />
                     </StackPanel>
                 </TabItem.Header>
                 <WrapPanel>
@@ -43,7 +49,10 @@
                         <TextBlock>Если вы выберите "Игра на время" - у вас будет лишь 30 секунд, чтобы ответить на все вопросы. Если нет - то 1 минута.</TextBlock>
                         <TextBlock>Если вы выберите "Ограниченное число ошибок" - у вас будет возможность сделать максимум 3 ошибки. Если нет - сколько угодно.</TextBlock>
                     </StackPanel>
-                    <Button Name="btn_go2" Click="btn_go2_Click" Margin="334,0,332,0" Background="Green" Foreground="White" Height="75" Width="118">Начали!</Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btn_go2" Click="btn_go2_Click" Background="Green" Foreground="White" Height="75" Width="154">Начали!</Button>
+                        <Button Name="btn_exit2" Width="101" Height="32" Foreground="Red" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic" Click="btn_exit_Click">EXIT</Button>
+                    </StackPanel>
                     <TextBlock TextAlignment="Center" Foreground="Green" FontSize="20" FontStyle="Italic" FontFamily="Times New Roman" Width="788">Выберите категорию:</TextBlock>
                 </WrapPanel>
             </TabItem>

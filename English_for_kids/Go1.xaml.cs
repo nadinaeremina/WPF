@@ -25,49 +25,66 @@ namespace English_for_kids
         //List<Bitmap> images = new List<Bitmap>();
         List<string> words = new List<string>();
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, left = 1, ind_right = 0;
-        string[] right_answers = { "lion", "dog", "cat", "orel", "fish" };
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            answer.Items.Clear();
-
-            answer.Items.Add(words[ind1]);
-            answer.Items.Add(words[ind2]);
-            answer.Items.Add(words[ind3]);
-
-            if (left == 1)
-                my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\dog.jpg");
-            else if (left == 2)
-                my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\cat.jpg");
-            else if (left == 3)
-                my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\orel.jpg");
-            else if (left == 4)
-                my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\fish.jpg");
-            now.Text = (++left).ToString();
+            System.Windows.MessageBox.Show("До новых встреч!");
+            Close();
+            MainWindow main = new MainWindow();
+            main.Show();
         }
+
+        string[] right_answers = { "lion", "dog", "cat", "orel", "fish" };
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ind1 += 3;
-            ind2 += 3;
-            ind3 += 3;
-
-            if (answer.SelectedItem != null)
+            if (left < 5)
             {
-                if (answer.SelectedItem.ToString() == right_answers[ind_right])
+                ind1 += 3;
+                ind2 += 3;
+                ind3 += 3;
+
+                if (answer.SelectedItem != null)
                 {
-                    System.Windows.MessageBox.Show("Right!");
-                    txt_right.Text = (++right).ToString();
+                    if (answer.SelectedItem.ToString() == right_answers[ind_right])
+                    {
+                        System.Windows.MessageBox.Show("Right!");
+                        txt_right.Text = (++right).ToString();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Wrong!");
+                        txt_wrong.Text = (++wrong).ToString();
+                    }
+                    ind_right++;
                 }
                 else
-                {
-                    System.Windows.MessageBox.Show("Wrong!");
-                    txt_wrong.Text = (++wrong).ToString();
-                }
-                ind_right++;
+                    System.Windows.MessageBox.Show("At first choose the answer!");
+
+                answer.Items.Clear();
+
+                answer.Items.Add(words[ind1]);
+                answer.Items.Add(words[ind2]);
+                answer.Items.Add(words[ind3]);
+
+                if (left == 1)
+                    my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\dog.jpg");
+                else if (left == 2)
+                    my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\cat.jpg");
+                else if (left == 3)
+                    my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\orel.jpg");
+                else if (left == 4)
+                    my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\fish.jpg");
+
+                now.Text = (++left).ToString();
             }
             else
-                System.Windows.MessageBox.Show("At first choose the answer!");
+            {
+                System.Windows.MessageBox.Show("Игра закончилась!");
+                Close();
+                MainWindow main = new MainWindow();
+                main.Show();
+            }
         }
 
         public Go1()

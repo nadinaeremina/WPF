@@ -50,5 +50,10 @@ namespace English_for_kids
             f1.ShowDialog();
             Close();
         }
+
+        private void btn_exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

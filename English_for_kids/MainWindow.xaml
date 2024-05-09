@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="LEARNING" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="Главная" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid >
         <WrapPanel Width="646">
-            <Image Height="363" Source="English.jpg" Stretch="Fill"  Width="641"/>
-            <TextBlock Width="76" FontSize="16" Foreground="Blue" FontStyle="Italic">Loading...</TextBlock>
-            <Grid Width="485">
-                <ProgressBar Name="p_bar" />
-                <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" VerticalAlignment="Bottom" TextAlignment="Center" />
+            <Image Height="355" Source="English.jpg" Stretch="Fill" Width="621"></Image>
+            <TextBlock Width="76" FontSize="16" Foreground="Blue" FontStyle="Italic">Загрузка...</TextBlock>
+            <Grid Width="487">
+                <ProgressBar Name="p_bar" Margin="0,0,0,3" />
+                <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,1,0" Height="21" />
             </Grid>
-            <Button Name="btn_start" Click="btn_start_Click" Width="81" Height="20" Background="{x:Null}" Foreground="Red" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic">START</Button>
+            <Button Name="btn_start" Click="btn_start_Click" Width="65" Height="20" Background="{x:Null}" Foreground="Blue" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic">Начать</Button>
+            <Button DockPanel.Dock="Right" x:Name="btn_exit" Background="Yellow" Foreground="Red" FontSize="14" FontFamily="Sitka Small" FontStyle="Italic" Click="btn_exit_Click" Content="Выйти" Width="87" />
         </WrapPanel>
     </Grid>
 </Window>

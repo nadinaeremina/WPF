@@ -22,7 +22,7 @@ namespace English_for_kids
         public Welcome(string name)
         {
             InitializeComponent();
-            welcome.Title = $"Welcome, {name}!";
+            welcome.Title = $"Добро пожаловать, {name}!";
         }
 
         private void btn_go1_Click(object sender, RoutedEventArgs e)
@@ -34,7 +34,15 @@ namespace English_for_kids
 
         private void btn_go2_Click(object sender, RoutedEventArgs e)
         {
+            Go1 form_go1 = new Go1();
+            form_go1.ShowDialog();
+            Close();
+        }
 
+        private void btn_exit_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Пока!");
+            Close();
         }
     }
 }
