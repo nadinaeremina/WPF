@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="Растения" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Неживое" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal">
+            <Image x:Name="my_image2" Source="ki.jpg" Width="561" Stretch="Fill"></Image>
+            <StackPanel Orientation="Vertical" Width="233">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="now"/>
+                    <TextBlock> вопрос из 5</TextBlock>
+                </StackPanel>
+                <TextBlock>Выберите правильный ответ:</TextBlock>
+                <ListBox x:Name="answer">
+                </ListBox>
+                <Button Click="Button_Click" Margin="81,0,72,0" Background="LightBlue" Height="36">Выбрать</Button>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Правильные ответ:</TextBlock>
+                    <TextBlock Name="txt_right"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Неправильные ответы:</TextBlock>
+                    <TextBlock Name="txt_wrong"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Осталось секунд:</TextBlock>
+                    <TextBlock Name="txt_timer"></TextBlock>
+                </StackPanel>
+                <Button Click="Button_Click_1" Margin="70,0,63,0" Height="36" Background="Yellow">Закончить игру</Button>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

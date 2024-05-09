@@ -47,7 +47,7 @@ namespace English_for_kids
         private void btn_start_Click(object sender, RoutedEventArgs e)
         {
             Settings f1 = new Settings();
-            f1.ShowDialog();
+            f1.Show();
             Close();
         }
 

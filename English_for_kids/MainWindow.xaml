@@ -8,14 +8,13 @@
         Title="Главная" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid >
         <WrapPanel Width="646">
-            <Image Height="355" Source="English.jpg" Stretch="Fill" Width="621"></Image>
-            <TextBlock Width="76" FontSize="16" Foreground="Blue" FontStyle="Italic">Загрузка...</TextBlock>
+            <Image Height="381" Source="English.jpg" Stretch="Fill" Width="621"></Image>
+            <TextBlock Width="76" FontSize="14" Foreground="Blue" FontStyle="Italic" FontFamily="Sitka Small">Загрузка...</TextBlock>
             <Grid Width="487">
-                <ProgressBar Name="p_bar" Margin="0,0,0,3" />
-                <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,1,0" Height="21" />
+                <ProgressBar Name="p_bar" />
+                <TextBlock Text="{Binding ElementName=p_bar, Path=Value, StringFormat={}{0:0}% }" VerticalAlignment="Bottom" TextAlignment="Center" Margin="0,0,1,3" Height="16" FontStyle="Italic" FontFamily="Sitka Small" />
             </Grid>
             <Button Name="btn_start" Click="btn_start_Click" Width="65" Height="20" Background="{x:Null}" Foreground="Blue" FontSize="14" FontFamily="Sitka Small" BorderThickness="0" FontStyle="Italic">Начать</Button>
-            <Button DockPanel.Dock="Right" x:Name="btn_exit" Background="Yellow" Foreground="Red" FontSize="14" FontFamily="Sitka Small" FontStyle="Italic" Click="btn_exit_Click" Content="Выйти" Width="87" />
         </WrapPanel>
     </Grid>
 </Window>

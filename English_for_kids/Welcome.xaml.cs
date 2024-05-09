@@ -25,17 +25,17 @@ namespace English_for_kids
             welcome.Title = $"Добро пожаловать, {name}!";
         }
 
-        private void btn_go1_Click(object sender, RoutedEventArgs e)
+        private void choose_Clickc(object sender, RoutedEventArgs e)
         {
-            Go1 form_go1 = new Go1();
-            form_go1.ShowDialog();
+            Go1 form_go1 = new Go1(check_time.IsChecked.Value, wrongs.IsChecked.Value, onemore_try.IsChecked.Value);
+            form_go1.Show();
             Close();
         }
 
-        private void btn_go2_Click(object sender, RoutedEventArgs e)
+        private void choose2_Clickc(object sender, RoutedEventArgs e)
         {
-            Go1 form_go1 = new Go1();
-            form_go1.ShowDialog();
+            Go2 form_go2 = new Go2(check_time2.IsChecked.Value, wrongs2.IsChecked.Value, onemore_try2.IsChecked.Value);
+            form_go2.Show();
             Close();
         }
 

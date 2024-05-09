@@ -89,6 +89,9 @@
     <Compile Include="Rating.xaml.cs">
       <DependentUpon>Rating.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Read.xaml.cs">
+      <DependentUpon>Read.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Rating.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Read.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +197,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="play.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cake.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ktl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ki.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

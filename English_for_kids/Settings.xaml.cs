@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,9 +36,32 @@ namespace English_for_kids
                     {
                         if (int.TryParse(txt_age.Text, out chislo) == true && Convert.ToInt32(txt_age.Text) > 3 && Convert.ToInt32(txt_age.Text) < 18)
                         {
+                            string filePath = "players.txt";
+                            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite))
+                            {
+                                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    sw.Write(txt_name.Text);
+                                    sw.Write(" ");
+                                    sw.Write(txt_lastname.Text);
+                                    sw.Write(" ");
+                                    sw.Write(txt_age.Text);
+                                    sw.Write("/");
+                                    sw.Dispose();
+                                }
+                            }
+                            MessageBox.Show("Данные сохранены!");
+
+                            //using (StreamReader sr = new StreamReader(filePath, Encoding.UTF8))
+                            //{
+                            //    string readText = sr.ReadToEnd();
+                            //    sr.Dispose();
+                            //    Read reading = new Read(readText);
+                            //    reading.Show();
+                            //}
+                            
                             Welcome f2 = new Welcome(txt_name.Text);
-                            f2.ShowDialog();
-                            //f2.Show();
+                            f2.Show();
                             Close();
                         }
                         else
@@ -56,6 +80,8 @@ namespace English_for_kids
         private void new_player_Click(object sender, RoutedEventArgs e)
         {
             st_panel_auto.Visibility = Visibility.Visible;
+            enter_age.Visibility = Visibility.Visible;
+            txt_age.Visibility = Visibility.Visible;
         }
         private void ex_player_Click(object sender, RoutedEventArgs e)
         {
@@ -75,6 +101,7 @@ namespace English_for_kids
         }
         private void exit_player_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("До новых встреч!");
             Close();
         }
     }
