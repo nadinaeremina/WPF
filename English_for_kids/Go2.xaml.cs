@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -20,14 +21,20 @@ namespace English_for_kids
     /// </summary>
     public partial class Go2 : Window
     {
+        string first_name, last_name, my_str;
         List<string> words = new List<string>();
         string[] right_answers = { "key", "cake", "car", "sun", "house" };
-        int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, inner_wrong = 1, limit_wrong = 5, left = 1, ind_right = 0;
-        bool flag = false;
+        int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, inner_wrong = 1, limit_wrong = 5, left = 1, ind_right = 0, age;
+        bool flag = false, existing;
         //Timer timer = new Timer();
 
-        public Go2(bool check, bool check2, bool check3)
+        public Go2(bool check, bool check2, bool check3, string str1, string str2, int agee, bool exist)
         {
+            first_name = str1;
+            last_name = str2;
+            age = agee;
+            existing = exist;
+
             words.Add("pen");
             words.Add("key");
             words.Add("cup");
@@ -135,6 +142,36 @@ namespace English_for_kids
                 else if (left == 5)
                 {
                     System.Windows.MessageBox.Show("Игра закончилась! Вы набрали очков");
+
+                    //StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
+                    //string str = reader.ReadToEnd();
+                    //string[] mas = str.Split('/');
+                    //List<string> list = new List<string>();
+                    //list.AddRange(mas);
+
+                    //for (int i = 0; i < list.Count; i++)
+                    //{
+                    //    if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                    //    {
+                    //        my_str = list[i];
+                    //        list.RemoveAt(i);
+                    //        break;
+                    //    }
+                    //}
+                    //my_str = my_str.Remove(my_str.Length - 1);
+                    //my_str += right;
+                    //my_str += "/";
+                    //list.Add(my_str);
+                    //reader.Close();
+
+                    //StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
+                    //for (int i = 0; i < list.Count; i++)
+                    //{
+                    //    writer.Write(list[i]);
+                    //}
+
+                    //writer.Close();
+
                     Settings set = new Settings();
                     set.Show();
                     Close();

@@ -9,8 +9,8 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <TextBlock TextAlignment="Center">Рейтинг:</TextBlock>
-            <TextBlock>1 yhgtb</TextBlock>
-            <TextBlock>2 ygngbhgtb</TextBlock>
+            <ListBox x:Name="listbox">
+            </ListBox>
         </StackPanel>
     </Grid>
 </Window>

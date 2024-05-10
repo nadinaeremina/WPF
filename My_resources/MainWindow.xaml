@@ -1,0 +1,55 @@
+﻿<Window x:Class="My_resources.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_resources"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel x:Name="St_1">
+            <!--способ с исп-ием рес-ов-->
+            <StackPanel.Resources>
+                <LinearGradientBrush x:Key="GBB" StartPoint="0,0" EndPoint="1,0" >
+                    <GradientStop Color="Green" Offset="0.0"/>
+                    <GradientStop Color="Yellow" Offset="0.5"/>
+                    <GradientStop Color="Blue" Offset="1.0"/>
+                </LinearGradientBrush>
+                
+                <!--1 способ-->
+                <!--<FontStyle x:Key="LFS">Italic</FontStyle>
+                <FontFamily x:Key="LFF">Arial</FontFamily>-->
+
+                <!--2 способ-->
+                <Style TargetType="Label">
+                    <Setter Property="FontStyle" Value="Italic"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                </Style>
+                <Style TargetType="Label" x:Key="style_1">
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            
+            <!--1 способ-->
+            <!--<Label Name="Lb1" Height="30" Content="Надпись до кнопки №1" Margin="321,0,313,0" FontStyle="{StaticResource LFS}" FontFamily="{StaticResource LFF}" />-->
+           
+            <!--2 способ-->
+            <Label Name="Lb1" Height="30" Content="Надпись до кнопки №1" Margin="321,0,313,0"/> 
+           
+            <Button Name="Bt1" Height="25" Width="80" Content="Кнопка 1" Background="{DynamicResource GBB}">
+            <!--способ без исп-ия рес-ов-->
+            <!--<Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" >
+                        <GradientStop Color="Green" Offset="0.0"/>
+                        <GradientStop Color="Yellow" Offset="0.5"/>
+                        <GradientStop Color="Blue" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Button.Background>-->
+            </Button>
+            <Label Name="Lb2" Height="30" Content="Надпись между кнопками" Margin="321,0,302,0" />
+            <Button Name="Bt2" Height="25" Width="80" Content="Кнопка 2" Background="{StaticResource GBB}"/>
+            <Label Name="Lb3" Height="30" Content="Надпись после кнопки №2" Margin="321,0,300,0" Style="{StaticResource style_1}"/>
+        </StackPanel>
+    </Grid>
+</Window>

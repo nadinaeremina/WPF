@@ -22,9 +22,10 @@
             </Menu>
             <StackPanel Orientation="Horizontal">
                 <Image Width="544" Source="play.jpg" Height="373"/>
-                <StackPanel Visibility="Hidden" x:Name="st_panel_auto" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Width="205">
+                <StackPanel x:Name="st_panel_auto" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Width="205" Visibility="Hidden">
+                    <TextBlock x:Name="new_or_exist" Background="Yellow" FontStyle="Italic"></TextBlock>
                     <TextBlock Height="21"><Run Text="Введите имя:"/></TextBlock>
-                    <TextBox x:Name="txt_name" Height="39" Margin="0,0,-1,0"/>
+                    <TextBox x:Name="txt_name" Height="39" Margin="0,0,-1,0" TextChanged="txt_name_TextChanged"/>
                     <TextBlock Height="21"><Run Text="Введите фамилию:"/></TextBlock>
                     <TextBox x:Name="txt_lastname" Height="39" Margin="0,0,-1,0"/>
                     <TextBlock x:Name="enter_age" Height="22"><Run Text="Введите возраст:"/></TextBlock>
@@ -32,7 +33,7 @@
                     <Button  Foreground="Blue" Click="Button_Click" Margin="53,0,38,0" Height="48" Background="Yellow" FontStyle="Italic" BorderThickness="2" FontFamily="Swis721 Hv BT" FontSize="16" Content="Готово"/>
                 </StackPanel>
                 <StackPanel>
-</StackPanel>
+                </StackPanel>
             </StackPanel>
         </WrapPanel>
     </Grid>

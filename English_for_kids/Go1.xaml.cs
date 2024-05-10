@@ -22,15 +22,21 @@ namespace English_for_kids
     /// </summary>
     public partial class Go1 : Window
     {
+        string first_name, last_name, my_str;
         //List<Bitmap> images = new List<Bitmap>();
         List<string> words = new List<string>();
         string[] right_answers = { "lion", "dog", "cat", "bird", "fish" };
-        int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, limit_wrong = 5, inner_wrong = 1, left = 1, ind_right = 0, count = 60;
-        bool flag = false;
+        int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, limit_wrong = 5, inner_wrong = 1, left = 1, ind_right = 0, count = 60, age;
+        bool flag = false, existing;
         Timer timer = new Timer();
 
-        public Go1(bool check, bool check2, bool check3)
+        public Go1(bool check, bool check2, bool check3, string str1, string str2, int agee, bool exist)
         {
+            first_name = str1;
+            last_name = str2;
+            age = agee;
+            existing = exist;
+
             words.Add("lion");
             words.Add("cat");
             words.Add("volf");
@@ -117,7 +123,8 @@ namespace English_for_kids
                         flag = false;
                         if (wrong == limit_wrong)
                         {
-                            System.Windows.MessageBox.Show("Вы допустили максимальное количество ошбок! Игра закончилась! Вы набрали 0 очков!");
+                            right = 0;
+                            System.Windows.MessageBox.Show($"Вы допустили максимальное количество ошбок! Игра закончилась! Вы набрали {right} очков!");
                             Settings set = new Settings();
                             set.Show();
                             Close();
@@ -159,14 +166,119 @@ namespace English_for_kids
                     my_image.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка\\fish.jpg");
                 else if (left == 5)
                 {
-                    System.Windows.MessageBox.Show("Игра закончилась! Вы набрали очков");
+                    System.Windows.MessageBox.Show($"Игра закончилась! Вы набрали {right} очков");
+
+                    //string filePath = "C:\\Users\\Nadya\\Desktop\\Players.txt";
+                    //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+                    //{
+                    //    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                    //    {
+                    //        sw.Write(txt_name.Text);
+                    //        sw.Write(" ");
+                    //        sw.Write(txt_lastname.Text);
+                    //        sw.Write(" ");
+                    //        sw.Write(txt_age.Text);
+                    //        sw.Write(" 0");
+                    //        sw.Write("/");
+                    //        sw.Dispose();
+                    //    }
+                    //}
+
+                    if (!existing)
+                    {
+                        StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
+                        writer.Write(first_name);
+                        writer.Write(" ");
+                        writer.Write(last_name);
+                        writer.Write(" ");
+                        writer.Write(age);
+                        writer.Write(" ");
+                        writer.Write(right);
+                        writer.Write("/");
+                        writer.Close();
+                    }
+                    else
+                    {
+                        StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
+                        string str = reader.ReadToEnd();
+                        string[] mas = str.Split('/');
+                        List<string> list = new List<string>();
+                        list.AddRange(mas);
+
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                            {
+                                my_str = list[i];
+                                list.RemoveAt(i);
+                                break;
+                            }
+                        }
+                        my_str = my_str.Remove(my_str.Length - 1);
+                        my_str += right;
+                        my_str += "/";
+                        list.Add(my_str);
+                        reader.Close();
+
+                        StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            writer.Write(list[i]);
+                        }
+
+                        writer.Close();
+                    }
+
+
+                    // сериализация!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                    //Player player = new Player { First_name = txt_name.Text, Last_name = txt_lastname.Text, Age = Convert.ToInt32(txt_age.Text) };
+                    //XmlSerializer xs = new XmlSerializer(typeof(Player));
+
+                    //string filePath = "C:\\Users\\Nadya\\Desktop\\Players.xml";
+                    //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+
+                    //{
+                    //    xs.Serialize(fs, player); // принимает поток и обьект
+                    //}
+                    //using (Stream fs = File.Create("C:\\Users\\Nadya\\Desktop\\Players.xml"))
+                    //{
+                    //    xs.Serialize(fs, player); // принимает поток и обьект
+                    //}
+
+                    //var sw = new StreamWriter(filePath, true, System.Text.Encoding.Default);
+                    //XmlDocument doc = new XmlDocument();
+                    //foreach (string url in uri)
+                    //{
+                    //    doc.Load(url);
+                    //    doc.Save(sw);
+                    //}
+
+
+                    //using (stream fs = file.openread("test_3.xml")) // открываем и читаем
+                    //{
+                    //    // десериализация // считываем обратно
+                    //    // выделяем память
+                    //    student tmp = null;
+                    //    tmp = (student)xs.deserialize(fs); // т.к. мы работаем с 'object', нам нужно привести к типу 'student'
+                    //    console.writeline(tmp);
+                    //}
+
+                    //using (StreamReader sr = new StreamReader(filePath, Encoding.UTF8))
+                    //{
+                    //    string readText = sr.ReadToEnd();
+                    //    sr.Dispose();
+                    //    Read reading = new Read(readText);
+                    //    reading.Show();
+                    //}
+
                     Settings set = new Settings();
                     set.Show();
                     Close();
                     return;
                 }
                 now.Text = (++left).ToString();
-            }  
+            } 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

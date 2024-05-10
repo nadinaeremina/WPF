@@ -10,19 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace English_for_kids
+namespace My_resources
 {
     /// <summary>
-    /// Interaction logic for Read.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Read : Window
+    public partial class MainWindow : Window
     {
-        public Read(string stroka)
+        public MainWindow()
         {
             InitializeComponent();
-            read.Content = stroka;
+            St_1.Resources["GBB"] = new SolidColorBrush(Colors.Red);
         }
     }
 }

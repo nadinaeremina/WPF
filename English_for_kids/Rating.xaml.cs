@@ -19,9 +19,13 @@ namespace English_for_kids
     /// </summary>
     public partial class Rating : Window
     {
-        public Rating()
+        public Rating(List<Player> players)
         {
             InitializeComponent();
+            for (int i = 0; i < players.Count; i++)
+            {
+                listbox.Items.Add(players[i]);
+            }  
         }
     }
 }
