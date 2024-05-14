@@ -1,0 +1,24 @@
+﻿<Window x:Class="My_resource3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_resource3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <!--стили - неоптимальный вариант-->
+    <Grid>
+        <StackPanel x:Name="SP1">
+            <StackPanel.Resources>
+                <FontStyle x:Key="LFS">Italic</FontStyle>
+                <FontFamily x:Key="LFF">Arial</FontFamily>
+            </StackPanel.Resources>
+            <Label Name="Lb1" Height="30" Width="150" Content="Надпись до кнопки №1" FontStyle="{StaticResource LFS}" FontFamily="{StaticResource LFF}"/>
+            <Button Name="Bt1" Height="25" Width="80" Content="Кнопка 1" />
+            <Label Name="Lb2" Height="30" Width="150" Content="Надпись между кнопками" />
+            <Button Name="Bt2" Height="25" Width="80" Content="Кнопка 2"/>
+            <Label Name="Lb3" Height="30" Width="150" Content="Надпись после кнопки №2" />
+        </StackPanel>
+    </Grid>
+</Window>

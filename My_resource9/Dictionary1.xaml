@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--сюда вставляем ресурсы из 'Xaml'-->
+        <ControlTemplate x:Key="Bt_tmp" TargetType="{x:Type Button}">
+            <Grid>
+                <Ellipse Height="50" Width="200" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}"/>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Template" Value="{StaticResource Bt_tmp}"/>
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+</ResourceDictionary>

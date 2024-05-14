@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace English_for_kids
 {
@@ -23,12 +25,12 @@ namespace English_for_kids
     public partial class Go1 : Window
     {
         string first_name, last_name, my_str;
-        //List<Bitmap> images = new List<Bitmap>();
+        List<Bitmap> images = new List<Bitmap>();
         List<string> words = new List<string>();
         string[] right_answers = { "lion", "dog", "cat", "bird", "fish" };
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, limit_wrong = 5, inner_wrong = 1, left = 1, ind_right = 0, count = 60, age;
         bool flag = false, existing;
-        Timer timer = new Timer();
+        DispatcherTimer dt = new DispatcherTimer();
 
         public Go1(bool check, bool check2, bool check3, string str1, string str2, int agee, bool exist)
         {
@@ -59,10 +61,12 @@ namespace English_for_kids
 
             InitializeComponent();
 
+
+
             //FolderBrowserDialog folder = new FolderBrowserDialog();
             //folder.SelectedPath = "C:\\Users\\Nadya\\Desktop\\Новая папка";
 
-            // обьект, кот. позволяет нам выбрать папочку, кот. будет помещать в себя опред. изоб-ие в нашу кол-цию 'images'
+            //// обьект, кот. позволяет нам выбрать папочку, кот. будет помещать в себя опред. изоб-ие в нашу кол-цию 'images'
             //DirectoryInfo di = new DirectoryInfo("C:\\Users\\Nadya\\Desktop\\Новая папка"); // 'SelectedPath' - путь к выбранной папке
 
             //IEnumerable<FileInfo> files = di.EnumerateFiles(); // файлы могут быть разного формата - поэтому - IEnumerable
@@ -80,6 +84,8 @@ namespace English_for_kids
             //    }
             //}
 
+
+
             answer.Items.Add(words[ind1]);
             answer.Items.Add(words[ind2]);
             answer.Items.Add(words[ind3]);
@@ -91,10 +97,9 @@ namespace English_for_kids
             if (check == true)
             {
                 txt_timer.Visibility = Visibility.Visible;
-                txt_timer2.Visibility = Visibility.Visible;
-                timer.Tick += new EventHandler(Show_timer);
-                timer.Interval = 950;
-                timer.Start();
+                dt.Tick += new EventHandler(Show_timer);
+                dt.Interval = TimeSpan.FromSeconds(1);
+                dt.Start();
             }
             if (check2 == true)
                 limit_wrong = 3;
@@ -133,7 +138,7 @@ namespace English_for_kids
                     }
                     else if (inner_wrong == 2 && !flag)
                     {
-                        flag = true; 
+                        flag = true;
                         System.Windows.MessageBox.Show("У вас есть еще 1 попытка!");
                     }
                 }
@@ -167,22 +172,6 @@ namespace English_for_kids
                 else if (left == 5)
                 {
                     System.Windows.MessageBox.Show($"Игра закончилась! Вы набрали {right} очков");
-
-                    //string filePath = "C:\\Users\\Nadya\\Desktop\\Players.txt";
-                    //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-                    //{
-                    //    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
-                    //    {
-                    //        sw.Write(txt_name.Text);
-                    //        sw.Write(" ");
-                    //        sw.Write(txt_lastname.Text);
-                    //        sw.Write(" ");
-                    //        sw.Write(txt_age.Text);
-                    //        sw.Write(" 0");
-                    //        sw.Write("/");
-                    //        sw.Dispose();
-                    //    }
-                    //}
 
                     if (!existing)
                     {

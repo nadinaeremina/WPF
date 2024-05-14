@@ -21,7 +21,10 @@ namespace Video_and_audio
     /// </summary>
     public partial class MainWindow : Window
     {
-        MediaPlayer pl_1 = new MediaPlayer();
+        // этот плеер больше для аудио
+        MediaPlayer pl_1 = new MediaPlayer(); // создаем эл-т в классе окна, чтобы корректно отработал 'Close'
+        // метод 'Close' вызывается автом-ки, когда обьект выходит из области видимости
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,12 +32,14 @@ namespace Video_and_audio
 
         private void btn_open_audio_Click(object sender, RoutedEventArgs e)
         {
-            //pl_1.Open(new Uri("audio.mp3", UriKind.Relative));
-            //pl_1.Play();
-
+            // 1
+            //pl_1.Open(new Uri("audio.mp3", UriKind.Relative)); // открыть аудиофайл // 'Relative' - относит. адрес
+            //pl_1.Play(); // проигрываем // обязательный метод // будет сущ-ть на протяжении жизн. цикла окна
+            
+            // 2
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "MP3 files (*.mp3)|*.mp3||All files(*.*)|*.*"; // 1 текст, 2 то, что будет открываться
-            if(ofd.ShowDialog()==true)
+            ofd.Filter = "MP3 files (*.mp3)|*.mp3|All files(*.*)|*.*"; // 1 текст; 2 - то, что будет открываться
+            if(ofd.ShowDialog()==true) // если выбран файл и нажата кнопка 'OK'
             {
                 pl_1.Open(new Uri(ofd.FileName));
                 pl_1.Play();

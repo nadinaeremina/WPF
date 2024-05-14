@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace English_for_kids
 {
@@ -21,11 +22,20 @@ namespace English_for_kids
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer dt = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
             btn_start.Visibility = Visibility.Hidden;
             Loading();
+        }
+
+        private void Show_timer(object sender, EventArgs e)
+        {
+            if (btn_start.Visibility == Visibility.Visible)
+                btn_start.Visibility = Visibility.Hidden;
+            else
+                btn_start.Visibility = Visibility.Visible;
         }
 
         private async void Loading()
@@ -42,6 +52,9 @@ namespace English_for_kids
                     break;
                 } 
             } while (true);
+            dt.Tick += new EventHandler(Show_timer);
+            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Start();
         }
 
         private void btn_start_Click(object sender, RoutedEventArgs e)

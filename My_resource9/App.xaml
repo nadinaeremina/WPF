@@ -1,0 +1,16 @@
+﻿<Application x:Class="My_resource9.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:My_resource9"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <!--создаем словарь ресурсов и подключаем сюда, для того, чтобы ресурс был доступен для всего проекта, а не для одной формы-->
+         <!--выбираем добавить словарь ресурсов в нашем проекте-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--выбираем коллекцию словарей, здесь может быть их неск-ко-->
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,33 @@
+﻿<Window x:Class="My_resource5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_resource5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <!--наследование стилей-->
+    <Grid>
+        <StackPanel x:Name="SP1">
+            <StackPanel.Resources>
+                <!--об-т 'Style' связываем с типом эл-та с пом. 'TargetType'-->
+                <Style TargetType="Label" x:Key="Parent_style">
+                    <!--базовый стиль-->
+                    <Setter Property="FontStyle" Value="Italic"/>
+                    <Setter Property="FontFamily" Value="Arial"/>
+                </Style>
+                <Style TargetType="Label" x:Key="Child_style" BasedOn="{StaticResource Parent_style}">
+                    <!--стиль-наследник-->
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </StackPanel.Resources>
+            <Label Name="Lb1" Height="30" Width="150" Content="Надпись до кнопки №1" />
+            <Button Name="Bt1" Height="25" Width="80" Content="Кнопка 1" />
+            <Label Name="Lb2" Height="30" Content="Надпись между кнопками" Style="{StaticResource Child_style}" Margin="259,0,219,0" />
+            <!--привязали стиль-наследник-->
+            <Button Name="Bt2" Height="25" Width="80" Content="Кнопка 2"/>
+            <Label Name="Lb3" Height="30" Width="150" Content="Надпись после кнопки №2" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -22,10 +22,17 @@ namespace English_for_kids
         public Rating(List<Player> players)
         {
             InitializeComponent();
+            players.Sort();
+            players.Reverse();
+
             for (int i = 0; i < players.Count; i++)
-            {
+                players[i].Number = i + 1;
+
+            if (players.Count > 5)
+                players.RemoveAt(5);
+
+            for (int i = 0; i < players.Count; i++)
                 listbox.Items.Add(players[i]);
-            }  
         }
     }
 }

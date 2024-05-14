@@ -1,0 +1,26 @@
+﻿<Window x:Class="My_resource6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_resource6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <!--шаблоны-->
+    <Window.Resources>
+        <ControlTemplate x:Key="Bt_tmp" TargetType="{x:Type Button}">
+            <!--можно было написать TargetType="Button"-->
+            <Grid>
+                <Ellipse Height="50" Width="200" Stroke="Black" Fill="Blue"/>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <!--как будет распол-ся-->
+                <!--для того, чтобы на нашей кнопке мы видели этот текст-->
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <Button x:Name="bt_1" Margin="20,20" Content="Button 1" Template="{StaticResource Bt_tmp}"/>
+        <Button x:Name="bt_2" Margin="20,20" Content="Button 2" Template="{StaticResource Bt_tmp}"/>
+    </StackPanel>
+</Window>

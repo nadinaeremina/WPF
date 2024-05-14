@@ -8,6 +8,5 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button x:Name="btn_open_audio" Content="OPEN" HorizontalAlignment="Left" Margin="522,202,0,0" VerticalAlignment="Top" Width="76" Click="btn_open_audio_Click" Height="46"/>
-
     </Grid>
 </Window>

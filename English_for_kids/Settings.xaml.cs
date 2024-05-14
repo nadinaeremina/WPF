@@ -67,8 +67,9 @@ namespace English_for_kids
                                 reader.Close();
                                 if (flag)
                                 {
+                                    int a = Convert.ToInt32(txt_age.Text);
                                     MessageBox.Show("Данные верны! Такой игрок существует!");
-                                    Welcome f2 = new Welcome(txt_name.Text, txt_lastname.Text, Convert.ToInt32(txt_age.Text), exicting);
+                                    Welcome f2 = new Welcome(txt_name.Text, txt_lastname.Text, a, exicting);
                                     f2.Show();
                                     Close();
                                 }
@@ -111,7 +112,6 @@ namespace English_for_kids
             string str = reader.ReadToEnd();
             reader.Close();
             
-            Player player = new Player();
             List<Player> players = new List<Player>();
             string[] mas = str.Split('/');
             string[] my_str;
@@ -120,13 +120,7 @@ namespace English_for_kids
             {
                 my_str = mas[i].Split(' ');
                 if (my_str.Length == 4)
-                {
-                    player.First_name = my_str[0];
-                    player.Last_name = my_str[1];
-                    player.Age = Convert.ToInt32(my_str[2]);
-                    player.Rating = my_str[3];
-                    players.Add(player);
-                }
+                    players.Add(new Player { First_name = my_str[0], Last_name = my_str[1], Age = Convert.ToInt32(my_str[2]), Rating = my_str[3]});   
             }
 
             Rating rating_form = new Rating(players);
@@ -143,7 +137,7 @@ namespace English_for_kids
             Close();
         }
 
-        private void txt_name_TextChanged(object sender, TextChangedEventArgs e)
+        private void txt_name_TextChanged(object sender, TextChangedEventArgs e) // рег выр!!!!!!!
         {
             var simvols = new HashSet<char>("!~@#$%^&*()_+-=\\/' \":;><.,`№[]{}|");
             string stroka = txt_name.Text;
