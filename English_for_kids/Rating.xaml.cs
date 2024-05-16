@@ -22,17 +22,27 @@ namespace English_for_kids
         public Rating(List<Player> players)
         {
             InitializeComponent();
+
             players.Sort();
             players.Reverse();
 
             for (int i = 0; i < players.Count; i++)
                 players[i].Number = i + 1;
 
-            if (players.Count > 5)
-                players.RemoveAt(5);
+            listbox1.Items.Add("№");
+            listbox2.Items.Add("Имя");
+            listbox3.Items.Add("Фамилия");
+            listbox4.Items.Add("Возраст");
+            listbox5.Items.Add("Очки");
 
-            for (int i = 0; i < players.Count; i++)
-                listbox.Items.Add(players[i]);
+            for (int i = 0; i < 5; i++)
+            {
+                listbox1.Items.Add(players[i].Number);
+                listbox2.Items.Add(players[i].First_name);
+                listbox3.Items.Add(players[i].Last_name);
+                listbox4.Items.Add(players[i].Age);
+                listbox5.Items.Add(players[i].Rating); 
+            }
         }
     }
 }

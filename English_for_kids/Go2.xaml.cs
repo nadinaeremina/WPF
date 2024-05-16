@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -85,14 +87,14 @@ namespace English_for_kids
             {
                 if (answer.SelectedItem.ToString() == right_answers[ind_right])
                 {
-                    MessageBox.Show("Правильно!");
+                    System.Windows.MessageBox.Show("Правильно!");
                     flag = false;
                     txt_right.Text = (++right).ToString();
                     ind_right++;
                 }
                 else
                 {
-                    MessageBox.Show("Ошибка!");
+                    System.Windows.MessageBox.Show("Ошибка!");
                     if (inner_wrong == 1 || flag)
                     {
                         ind_right++;
@@ -100,7 +102,7 @@ namespace English_for_kids
                         flag = false;
                         if (wrong == limit_wrong)
                         {
-                            MessageBox.Show("Вы допустили максимальное количество ошбок! Игра закончилась! Вы набрали 0 очков!");
+                            System.Windows.MessageBox.Show("Вы допустили максимальное количество ошбок! Игра закончилась! Вы набрали 0 очков!");
                             Settings set = new Settings();
                             set.Show();
                             Close();
@@ -110,12 +112,12 @@ namespace English_for_kids
                     else if (inner_wrong == 2 && !flag)
                     {
                         flag = true;
-                        MessageBox.Show("У вас есть еще 1 попытка!");
+                        System.Windows.MessageBox.Show("У вас есть еще 1 попытка!");
                     }
                 }
             }
             else
-                MessageBox.Show("Сначала выберите ответ!");
+                System.Windows.MessageBox.Show("Сначала выберите ответ!");
 
             if (inner_wrong == 1 || (inner_wrong == 2 && !flag))
             {
@@ -142,7 +144,7 @@ namespace English_for_kids
                     my_image2.Source = (ImageSource)new ImageSourceConverter().ConvertFromString("C:\\Users\\Nadya\\Desktop\\Новая папка2\\house.jpg");
                 else if (left == 5)
                 {
-                    MessageBox.Show("Игра закончилась! Вы набрали очков");
+                    System.Windows.MessageBox.Show($"Игра закончилась! Вы набрали {right} очков");
 
                     if (!existing)
                     {
@@ -160,10 +162,10 @@ namespace English_for_kids
                     else
                     {
                         StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
-                        string str = reader.ReadToEnd();
+                        string str = reader.ReadToEnd(), new_str = "";
                         string[] mas = str.Split('/');
-                        List<string> list = new List<string>();
-                        list.AddRange(mas);
+                        List<string> list = new List<string>(mas);
+                        list.RemoveAt(list.Count - 1);
 
                         for (int i = 0; i < list.Count; i++)
                         {
@@ -174,18 +176,30 @@ namespace English_for_kids
                                 break;
                             }
                         }
-                        my_str = my_str.Remove(my_str.Length - 1);
-                        my_str += right;
+
+                        string[] mas2 = my_str.Split(' ');
+                        List<string> my_list = new List<string>(mas2);
+                        my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
+                        my_str = "";
+
+                        for (int i = 0; i < my_list.Count; i++)
+                        {
+                            my_str += my_list[i];
+                            if (i < my_list.Count-1)
+                               my_str += ' ';
+                        }
                         my_str += "/";
+
+                        for (int i = 0; i < list.Count; i++)
+                            list[i] += '/';
+
                         list.Add(my_str);
                         reader.Close();
 
                         StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
                         for (int i = 0; i < list.Count; i++)
-                        {
-                            writer.Write(list[i]);
-                        }
-
+                            new_str += list[i];
+                        writer.Write(new_str);
                         writer.Close();
                     }
 
@@ -200,7 +214,7 @@ namespace English_for_kids
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("До новых встреч!");
+            System.Windows.MessageBox.Show("До новых встреч!");
             Settings set = new Settings();
             set.Show();
             Close();

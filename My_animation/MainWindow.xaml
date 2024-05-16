@@ -1,0 +1,28 @@
+﻿<Window x:Class="My_animation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:My_animation"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dg_student" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=students}"
+                  HorizontalGridLinesBrush="LightBlue" RowBackground="LightGreen" AlternatingRowBackground="Aquamarine">
+            <DataGrid.Resources>
+                <col:ArrayList x:Key="students">
+                    <local:Student age="20" Lname="Ivanov" Fname="Ivan"/>
+                    <local:Student age="25" Lname="Petrov" Fname="Petr"/>
+                    <local:Student age="20" Lname="Ivanova" Fname="Elena"/>
+                </col:ArrayList>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Path=age}" Width="50"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=Lname}" Width="100"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=Fname}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DatePicker Name="dp1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

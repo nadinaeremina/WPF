@@ -24,8 +24,7 @@ namespace English_for_kids
     /// </summary>
     public partial class Go1 : Window
     {
-        string first_name, last_name, my_str;
-        List<Bitmap> images = new List<Bitmap>();
+        string first_name, last_name, my_str, new_str;
         List<string> words = new List<string>();
         string[] right_answers = { "lion", "dog", "cat", "bird", "fish" };
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, limit_wrong = 5, inner_wrong = 1, left = 1, ind_right = 0, count = 60, age;
@@ -60,31 +59,6 @@ namespace English_for_kids
             words.Add("pig");
 
             InitializeComponent();
-
-
-
-            //FolderBrowserDialog folder = new FolderBrowserDialog();
-            //folder.SelectedPath = "C:\\Users\\Nadya\\Desktop\\Новая папка";
-
-            //// обьект, кот. позволяет нам выбрать папочку, кот. будет помещать в себя опред. изоб-ие в нашу кол-цию 'images'
-            //DirectoryInfo di = new DirectoryInfo("C:\\Users\\Nadya\\Desktop\\Новая папка"); // 'SelectedPath' - путь к выбранной папке
-
-            //IEnumerable<FileInfo> files = di.EnumerateFiles(); // файлы могут быть разного формата - поэтому - IEnumerable
-            //// 'EnumerateFiles()' - возвращ-ет кол-цию файлов из папки, кот. мы будем выбирать
-            //foreach (FileInfo file in files)
-            //{
-            //    string str = System.IO.Path.GetExtension(file.FullName); // 'Path' (путь) - статич. класс
-            //    // 'GetExtension' - возв-ет расширение у нашего об-та - 'FullName' - полное имя
-            //    if (str == ".bmp" || str == ".jpeg" || str == ".png" || str == ".jpg")
-            //    {
-            //        Bitmap pt = new Bitmap(file.FullName); // укладываем в обьект 'BitMap' - нашу картинку
-            //        // подгоняем наши картинки под один размер
-            //        //Size pt_size = pictureBox1.Size;
-            //        images.Add(new Bitmap(pt)); // укладываем картинку в коллекцию
-            //    }
-            //}
-
-
 
             answer.Items.Add(words[ind1]);
             answer.Items.Add(words[ind2]);
@@ -191,8 +165,8 @@ namespace English_for_kids
                         StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
                         string str = reader.ReadToEnd();
                         string[] mas = str.Split('/');
-                        List<string> list = new List<string>();
-                        list.AddRange(mas);
+                        List<string> list = new List<string>(mas);
+                        list.RemoveAt(list.Count - 1);
 
                         for (int i = 0; i < list.Count; i++)
                         {
@@ -203,18 +177,30 @@ namespace English_for_kids
                                 break;
                             }
                         }
-                        my_str = my_str.Remove(my_str.Length - 1);
-                        my_str += right;
+
+                        string[] mas2 = my_str.Split(' ');
+                        List<string> my_list = new List<string>(mas2);
+                        my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
+                        my_str = "";
+
+                        for (int i = 0; i < my_list.Count; i++)
+                        {
+                            my_str += my_list[i];
+                            if (i < my_list.Count - 1)
+                                my_str += ' ';
+                        }
                         my_str += "/";
+
+                        for (int i = 0; i < list.Count; i++)
+                            list[i] += '/';
+
                         list.Add(my_str);
                         reader.Close();
 
                         StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
                         for (int i = 0; i < list.Count; i++)
-                        {
-                            writer.Write(list[i]);
-                        }
-
+                            new_str += list[i];
+                        writer.Write(new_str);
                         writer.Close();
                     }
 

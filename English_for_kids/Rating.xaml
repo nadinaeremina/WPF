@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="Rating" Height="450" Width="800">
+        Title="Rating" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="0,0,-1,0">
             <TextBlock TextAlignment="Center">Рейтинг:</TextBlock>
-            <ListBox x:Name="listbox">
-            </ListBox>
+            <StackPanel Orientation="Horizontal">
+                <ListBox x:Name="listbox1" Width="30">
+                </ListBox>
+                <ListBox x:Name="listbox2" Width="100">
+                </ListBox>
+                <ListBox x:Name="listbox3" Width="100">
+                </ListBox>
+                <ListBox x:Name="listbox4" Width="60">
+                </ListBox>
+                <ListBox x:Name="listbox5" Width="45">
+                </ListBox>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
