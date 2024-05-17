@@ -28,7 +28,6 @@ namespace English_for_kids
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int chislo, age = 0;
@@ -129,23 +128,22 @@ namespace English_for_kids
         }
         private void rating_Click(object sender, RoutedEventArgs e)
         {
-            StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
-            string str = reader.ReadToEnd();
-            reader.Close();
-
-            List<Player> players = new List<Player>();
-            string[] mas = str.Split('/');
-            string[] my_str;
-
-            for (int i = 0; i < mas.Length; i++)
+            using (StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true))
             {
-                my_str = mas[i].Split(' ');
-                if (my_str.Length == 4)
-                    players.Add(new Player { First_name = my_str[0], Last_name = my_str[1], Age = Convert.ToInt32(my_str[2]), Rating = my_str[3] });
-            }
-
-            Rating rating_form = new Rating(players);
-            rating_form.ShowDialog();
+                string str = reader.ReadToEnd();
+                reader.Close();
+                List<Player> players = new List<Player>();
+                string[] mas = str.Split('/');
+                string[] my_str;
+                for (int i = 0; i < mas.Length; i++)
+                {
+                    my_str = mas[i].Split(' ');
+                    if (my_str.Length == 4)
+                        players.Add(new Player { First_name = my_str[0], Last_name = my_str[1], Age = Convert.ToInt32(my_str[2]), Rating = my_str[3] });
+                }
+                Rating rating_form = new Rating(players);
+                rating_form.ShowDialog();
+            }  
         }
         private void info_Click(object sender, RoutedEventArgs e)
         {

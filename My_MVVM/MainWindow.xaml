@@ -23,17 +23,19 @@
             </MenuItem>
         </Menu>
 
+        <!--'ItemSource'-кол-ия, содержащая все об-ты, кот. будут показаны в списке-->
         <ListBox Grid.Column="0" ItemsSource="{Binding Tovares}" SelectedItem="{Binding SelectTovar}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
+            <ListBox.ItemTemplate> <!--'ItemTemplate'-принимает шаблон данных, кот. будет исп-ан для соз-ия визуал. пред-ия каждого эл-та-->
+                <DataTemplate> <!--шаблон привязки на каждый 'item'-->
                     <StackPanel Margin="5">
-                        <TextBlock FontSize="18" Text="{Binding Path=Title}"/>
-                        <TextBlock  Text="{Binding Path=Company}"/>
-                        <TextBlock  Text="{Binding Path=Price}"/>
+                        <TextBlock FontSize="18" Text="{Binding Path=Title}"/> <!--св-во 'Title' класса 'Tovares'-->
+                        <TextBlock  Text="{Binding Path=Company}"/> <!--св-во 'Title' класса 'Tovares'-->
+                        <TextBlock  Text="{Binding Path=Price}"/> <!--св-во 'Title' класса 'Tovares'-->
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Command="{Binding ADD_command}" Content="ADD" Margin="10"/>
             <Button Command="{Binding Remove_command}" Content="Remove" CommandParameter="{Binding SelectTovar}" Margin="10"/>
@@ -45,10 +47,13 @@
                 </i:Interaction.Triggers>
             </Button>-->
         </StackPanel>
+        
+        <!--'DataContext'-привязываем 'SelectTovar' для того, что в 'Binding' указывать только 'Path'-->
         <StackPanel Grid.Column="1" DataContext="{Binding SelectTovar}"> <!--через 'DataContext' привязываем 'StackPanel'--> 
             <TextBlock Text="Выбранный элемент"/>
             <TextBlock Text="Товар" />
-            <TextBox Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
+            <!--св-ва передаются через триггер-->
+            <TextBox Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Производитель" />
             <TextBox  Text="{Binding Path=Company, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Text="Цена" />

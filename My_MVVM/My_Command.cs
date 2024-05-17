@@ -17,18 +17,22 @@ namespace My_MVVM
         public event EventHandler CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
+
+        // если не будем вводить 'canExecute' - будет исп-ся только 'Action'
         public My_Command(Action<object> _execute, Func<object, bool> _canExecute=null)
-        {
+        { 
             execute = _execute;
             canExecute = _canExecute;
         }
+
         // здесь проверяем, пустая команда или задана
         public bool CanExecute(object parameter)
         {
             return canExecute == null || canExecute(parameter);
         }
+
         // здесь вып-ем эту команду
         public void Execute(object parameter)
         {

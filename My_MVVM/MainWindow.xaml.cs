@@ -25,13 +25,16 @@ namespace My_MVVM
             InitializeComponent();
             // устанавливаем контекст данных для данного окна и внего передать наш обьект 'ViewModel_Tovar'
             // это и есть наша связочка (каким образом из св-в товара через 'ViewModel' мы передаем наши данные на компановку
+            
             // 1
-            //DataContext = new ViewModel_Tovar();
+            // привязываем класс 'ViewModel_Tovar'
+            //DataContext = new ViewModel_Tovar(); // SelectedItem="{Binding SelectTovar}"
+            
             //2
-            DataContext = new ViewModel_Tovar(new Class_Dialog(), new JsonSerialFile());
+            DataContext = new ViewModel_Tovar(new Class_Dialog(), new JsonSerialFile()); // новый кон-р
         } 
 
-        //ICommand
+        // Interface ICommand
         //bool CanExecute(object parameter); - может ли команда вып-ся
         //void Execute(object parameter); - метод, кот. вып-ет логику команды
         //event EventHandler CanExecuteChanged; - выз-ся при измен-ии усл-ий CanExecute

@@ -13,6 +13,8 @@ namespace My_MVVM
         public List<Tovar> Open(string filename)
         {
             List<Tovar> tovars = new List<Tovar>();
+
+            // создаем об-т сериализации
             DataContractJsonSerializer jF = new DataContractJsonSerializer(typeof(List<Tovar>));
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {

@@ -24,7 +24,7 @@ namespace English_for_kids
     /// </summary>
     public partial class Go2 : Window
     {
-        string first_name, last_name, my_str;
+        string first_name, last_name, my_str, new_str = "";
         List<string> words = new List<string>();
         string[] right_answers = { "key", "cake", "car", "sun", "house" };
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, inner_wrong = 1, limit_wrong = 5, left = 1, ind_right = 0, count = 60, age;
@@ -71,6 +71,7 @@ namespace English_for_kids
             if (check == true)
             {
                 txt_timer.Visibility = Visibility.Visible;
+                txt_timer2.Visibility = Visibility.Visible;
                 dt.Tick += new EventHandler(Show_timer);
                 dt.Interval = TimeSpan.FromSeconds(1);
                 dt.Start();
@@ -161,48 +162,53 @@ namespace English_for_kids
                     }
                     else
                     {
-                        StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
-                        string str = reader.ReadToEnd(), new_str = "";
-                        string[] mas = str.Split('/');
-                        List<string> list = new List<string>(mas);
-                        list.RemoveAt(list.Count - 1);
-
-                        for (int i = 0; i < list.Count; i++)
+                        List<string> list;
+                        List<string> my_list;
+                        using (StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true))
                         {
-                            if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                            string str = reader.ReadToEnd();
+                            string[] mas = str.Split('/');
+                            list = new List<string>(mas);
+                            list.RemoveAt(list.Count - 1);
+
+                            for (int i = 0; i < list.Count; i++)
                             {
-                                my_str = list[i];
-                                list.RemoveAt(i);
-                                break;
+                                if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                                {
+                                    my_str = list[i];
+                                    list.RemoveAt(i);
+                                    break;
+                                }
                             }
+
+                            string[] mas2 = my_str.Split(' ');
+                            my_list = new List<string>(mas2);
+                            my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
+                            my_str = "";
+
+                            for (int i = 0; i < my_list.Count; i++)
+                            {
+                                my_str += my_list[i];
+                                if (i < my_list.Count - 1)
+                                    my_str += ' ';
+                            }
+                            my_str += "/";
+
+                            for (int i = 0; i < list.Count; i++)
+                                list[i] += '/';
+
+                            list.Add(my_str);
+                            //reader.Close();
                         }
 
-                        string[] mas2 = my_str.Split(' ');
-                        List<string> my_list = new List<string>(mas2);
-                        my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
-                        my_str = "";
-
-                        for (int i = 0; i < my_list.Count; i++)
+                        using (StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt"))
                         {
-                            my_str += my_list[i];
-                            if (i < my_list.Count-1)
-                               my_str += ' ';
-                        }
-                        my_str += "/";
-
-                        for (int i = 0; i < list.Count; i++)
-                            list[i] += '/';
-
-                        list.Add(my_str);
-                        reader.Close();
-
-                        StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
-                        for (int i = 0; i < list.Count; i++)
-                            new_str += list[i];
-                        writer.Write(new_str);
-                        writer.Close();
+                            for (int i = 0; i < list.Count; i++)
+                                new_str += list[i];
+                            writer.Write(new_str);
+                            //writer.Close();
+                        }    
                     }
-
                     Settings set = new Settings();
                     set.Show();
                     Close();
@@ -222,7 +228,7 @@ namespace English_for_kids
 
         private void Show_timer(object sender, EventArgs e)
         {
-            txt_timer.Text = (--count).ToString();
+            txt_timer2.Text = (--count).ToString();
         }
     }
 }

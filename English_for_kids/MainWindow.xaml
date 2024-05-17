@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="Главная" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Главная" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid >
         <WrapPanel Width="646">
             <Image Height="381" Source="English.jpg" Stretch="Fill" Width="621"></Image>

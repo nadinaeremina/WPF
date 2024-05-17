@@ -41,7 +41,6 @@ namespace English_for_kids
         private async void Loading()
         {
             p_bar.Value = 0;
-
             do
             {
                 p_bar.Value++;

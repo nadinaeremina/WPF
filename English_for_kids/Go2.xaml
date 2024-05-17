@@ -4,34 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" 
         mc:Ignorable="d"
-        Title="Неживое" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Неживое" Height="450" Width="800" WindowStartupLocation="CenterScreen" MaxHeight="1027.628" MaxWidth="1656.334" MinHeight="378.706" MinWidth="719.946">
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Image x:Name="my_image2" Source="ki.jpg" Width="561" Stretch="Fill"></Image>
-            <StackPanel Orientation="Vertical" Width="233">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="now"/>
-                    <TextBlock> вопрос из 5</TextBlock>
-                </StackPanel>
-                <TextBlock>Выберите правильный ответ:</TextBlock>
-                <ListBox x:Name="answer">
-                </ListBox>
-                <Button Click="Button_Click" Margin="81,0,72,0" Background="LightBlue" Height="36">Выбрать</Button>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Правильные ответ:</TextBlock>
-                    <TextBlock Name="txt_right"></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Неправильные ответы:</TextBlock>
-                    <TextBlock Name="txt_wrong"></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Осталось секунд:</TextBlock>
-                    <TextBlock Name="txt_timer"></TextBlock>
-                </StackPanel>
-                <Button Click="Button_Click_1" Margin="70,0,63,0" Height="36" Background="Yellow">Закончить игру</Button>
-            </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="216*"/>
+            <ColumnDefinition Width="89*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Grid.RowSpan="11" Grid.ColumnSpan="2" x:Name="my_image2" Source="ki.jpg" Width="561" Stretch="Fill"></Image>
+        <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="80,0,0,10.636">
+            <TextBlock x:Name="now"/>
+            <TextBlock Text=" вопрос из 5" Width="87"/>
         </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="2" Margin="16,0.364,0,31.636" Grid.RowSpan="2">Выберите правильный ответ:</TextBlock>
+        <ListBox Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" x:Name="answer" Margin="12,0.364,10,10.636">
+        </ListBox>
+        <Button Grid.Column="2" Grid.Row="4" Click="Button_Click" Margin="54,9.364,45,9.636" Background="LightBlue" Grid.RowSpan="2">Выбрать</Button>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="6" Margin="0,0.364,0,31.273" Grid.RowSpan="2">
+            <TextBlock >Правильные ответ:</TextBlock>
+            <TextBlock Name="txt_right"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="6" Margin="0,31.364,0,0.273" Grid.RowSpan="2">
+            <TextBlock Margin="0,0,0,12" >Неправильные ответы:</TextBlock>
+            <TextBlock  Name="txt_wrong"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="7" Margin="0,20.727,0,32.545" Grid.RowSpan="3">
+            <TextBlock x:Name="txt_timer" Visibility="Hidden" Text="Осталось секунд:"/>
+            <TextBlock x:Name="txt_timer2" Visibility="Hidden" Width="103"/>
+        </StackPanel>
+        <Button Grid.Column="2" Grid.Row="8" Click="Button_Click_1" Margin="48,3.727,31,0.909" Background="Yellow">Закончить игру</Button>
+        <Image Stretch="Fill" gif:ImageBehavior.AnimatedSource="AssuredMiniatureApe-size_restricted.gif" Grid.Column="2" Margin="85,4.091,1,0.545" Grid.Row="9" Grid.RowSpan="2"/>
     </Grid>
 </Window>

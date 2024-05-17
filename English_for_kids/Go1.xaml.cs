@@ -24,15 +24,26 @@ namespace English_for_kids
     /// </summary>
     public partial class Go1 : Window
     {
-        string first_name, last_name, my_str, new_str;
+        string first_name, last_name, my_str, new_str = "";
         List<string> words = new List<string>();
         string[] right_answers = { "lion", "dog", "cat", "bird", "fish" };
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, limit_wrong = 5, inner_wrong = 1, left = 1, ind_right = 0, count = 60, age;
+
+        //private void medelem_MediaEnded(object sender, RoutedEventArgs e)
+        //{
+        //    medelem.Position = new TimeSpan(0, 0, 1);
+        //    medelem.Play();
+        //}
+
+
+
         bool flag = false, existing;
         DispatcherTimer dt = new DispatcherTimer();
 
         public Go1(bool check, bool check2, bool check3, string str1, string str2, int agee, bool exist)
         {
+            // medelem.Play();
+
             first_name = str1;
             last_name = str2;
             age = agee;
@@ -71,6 +82,7 @@ namespace English_for_kids
             if (check == true)
             {
                 txt_timer.Visibility = Visibility.Visible;
+                txt_timer2.Visibility = Visibility.Visible;
                 dt.Tick += new EventHandler(Show_timer);
                 dt.Interval = TimeSpan.FromSeconds(1);
                 dt.Start();
@@ -162,98 +174,60 @@ namespace English_for_kids
                     }
                     else
                     {
-                        StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true);
-                        string str = reader.ReadToEnd();
-                        string[] mas = str.Split('/');
-                        List<string> list = new List<string>(mas);
-                        list.RemoveAt(list.Count - 1);
-
-                        for (int i = 0; i < list.Count; i++)
+                        List<string> my_list;
+                        List<string> list;
+                        using (StreamReader reader = new StreamReader(@"C:\\Users\\Nadya\\Desktop\\Players.txt", true))
                         {
-                            if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                            string str = reader.ReadToEnd();
+                            string[] mas = str.Split('/');
+                            list = new List<string>(mas);
+                            list.RemoveAt(list.Count - 1);
+
+                            for (int i = 0; i < list.Count; i++)
                             {
-                                my_str = list[i];
-                                list.RemoveAt(i);
-                                break;
+                                if (list[i].Contains(first_name) && list[i].Contains(last_name))
+                                {
+                                    my_str = list[i];
+                                    list.RemoveAt(i);
+                                    break;
+                                }
                             }
+
+                            string[] mas2 = my_str.Split(' ');
+                            my_list = new List<string>(mas2);
+                            my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
+                            my_str = "";
+
+                            for (int i = 0; i < my_list.Count; i++)
+                            {
+                                my_str += my_list[i];
+                                if (i < my_list.Count - 1)
+                                    my_str += ' ';
+                            }
+                            my_str += "/";
+
+                            for (int i = 0; i < list.Count; i++)
+                                list[i] += '/';
+
+                            list.Add(my_str);
+                            //reader.Close();
                         }
 
-                        string[] mas2 = my_str.Split(' ');
-                        List<string> my_list = new List<string>(mas2);
-                        my_list[3] = (Convert.ToInt32(my_list[3]) + right).ToString();
-                        my_str = "";
-
-                        for (int i = 0; i < my_list.Count; i++)
+                        using (StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt"))
                         {
-                            my_str += my_list[i];
-                            if (i < my_list.Count - 1)
-                                my_str += ' ';
+                            for (int i = 0; i < list.Count; i++)
+                                new_str += list[i];
+                            writer.Write(new_str);
+                            //writer.Close();
                         }
-                        my_str += "/";
-
-                        for (int i = 0; i < list.Count; i++)
-                            list[i] += '/';
-
-                        list.Add(my_str);
-                        reader.Close();
-
-                        StreamWriter writer = new StreamWriter(@"C:\\Users\\Nadya\\Desktop\\Players.txt");
-                        for (int i = 0; i < list.Count; i++)
-                            new_str += list[i];
-                        writer.Write(new_str);
-                        writer.Close();
                     }
-
-
-                    // сериализация!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-                    //Player player = new Player { First_name = txt_name.Text, Last_name = txt_lastname.Text, Age = Convert.ToInt32(txt_age.Text) };
-                    //XmlSerializer xs = new XmlSerializer(typeof(Player));
-
-                    //string filePath = "C:\\Users\\Nadya\\Desktop\\Players.xml";
-                    //using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-
-                    //{
-                    //    xs.Serialize(fs, player); // принимает поток и обьект
-                    //}
-                    //using (Stream fs = File.Create("C:\\Users\\Nadya\\Desktop\\Players.xml"))
-                    //{
-                    //    xs.Serialize(fs, player); // принимает поток и обьект
-                    //}
-
-                    //var sw = new StreamWriter(filePath, true, System.Text.Encoding.Default);
-                    //XmlDocument doc = new XmlDocument();
-                    //foreach (string url in uri)
-                    //{
-                    //    doc.Load(url);
-                    //    doc.Save(sw);
-                    //}
-
-
-                    //using (stream fs = file.openread("test_3.xml")) // открываем и читаем
-                    //{
-                    //    // десериализация // считываем обратно
-                    //    // выделяем память
-                    //    student tmp = null;
-                    //    tmp = (student)xs.deserialize(fs); // т.к. мы работаем с 'object', нам нужно привести к типу 'student'
-                    //    console.writeline(tmp);
-                    //}
-
-                    //using (StreamReader sr = new StreamReader(filePath, Encoding.UTF8))
-                    //{
-                    //    string readText = sr.ReadToEnd();
-                    //    sr.Dispose();
-                    //    Read reading = new Read(readText);
-                    //    reading.Show();
-                    //}
-
                     Settings set = new Settings();
                     set.Show();
                     Close();
                     return;
                 }
                 now.Text = (++left).ToString();
-            } 
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -266,7 +240,7 @@ namespace English_for_kids
 
         private void Show_timer(object sender, EventArgs e)
         {
-            txt_timer.Text = (--count).ToString();
+            txt_timer2.Text = (--count).ToString();
         }
     }
 }

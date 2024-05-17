@@ -35,6 +35,7 @@ namespace English_for_kids
         private void choose_Clickc(object sender, RoutedEventArgs e)
         {
             Go1 form_go1 = new Go1(check_time.IsChecked.Value, wrongs.IsChecked.Value, onemore_try.IsChecked.Value, first_namee, last_namee, agee, exist);
+
             form_go1.Show();
             Close();
         }

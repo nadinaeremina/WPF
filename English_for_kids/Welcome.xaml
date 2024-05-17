@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
-        mc:Ignorable="d" Height="516.985" Width="820.05" WindowStartupLocation="CenterScreen" MinHeight="516.985" MinWidth="820.05">
+        mc:Ignorable="d" Height="500" Width="800" WindowStartupLocation="CenterScreen" MinHeight="516.985" MinWidth="820.05" ResizeMode="NoResize">
     <Grid Margin="0,0,14,3">
         <TabControl Margin="11,5,-8,17" TabStripPlacement="Bottom">
             <TabItem>

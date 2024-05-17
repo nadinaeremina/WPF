@@ -23,13 +23,18 @@ namespace My_animation
         public MainWindow()
         {
             InitializeComponent();
-            //List<Student> students = new List<Student>()
-            //{
-            //    new Student{age=20, Lname="Ivanov", Fname="Ivan"},
-            //    new Student{age=25, Lname="Petrov", Fname="Petr"},
-            //    new Student{age=30, Lname="Ivanova", Fname="Elena"},
-            //};
-            //dg_student.ItemsSource = students;
+            List<Student> students = new List<Student>()
+            {
+                new Student{age=20, Lname="Ivanov", Fname="Ivan"},
+                new Student{age=25, Lname="Petrov", Fname="Petr"},
+                new Student{age=30, Lname="Ivanova", Fname="Elena"},
+            };
+            dg_student.ItemsSource = students;
+        }
+
+        private void dg_student_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

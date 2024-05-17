@@ -10,11 +10,12 @@ using System.Threading.Tasks;
 namespace My_MVVM
 {
     // связь 'View' и 'Model'
-    public class ViewModel_Tovar : INotifyPropertyChanged
+    public class ViewModel_Tovar : INotifyPropertyChanged // 'ViewModel' - это тоже класс и он тоже должен реализовать интерфейс 'INotifyPropertyChanged'
     {
         // определяем кол-цию товара, через кот. мы будем в 'ListBox' работать
-        public ObservableCollection<Tovar> Tovares { get; set; }
-        private Tovar selectTovar;
+        public ObservableCollection<Tovar> Tovares { get; set; } // в оригинале паттрена такая кол-ия 'ObservableCollection'
+
+        private Tovar selectTovar; // базовое св-во // тот товар, кот. мы выберем
 
         public Tovar SelectTovar
         {
@@ -40,6 +41,7 @@ namespace My_MVVM
         //    };
         //}
 
+        //2
         public ViewModel_Tovar(DialogInterface _dialogInterface, IFileService _fileService)
         {
             dialogInterface = _dialogInterface;
@@ -53,6 +55,7 @@ namespace My_MVVM
                  new Tovar{Title ="Апельсин", Company="Сад", Price=250}
             };
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropCh([CallerMemberName] string prop_str = "")
@@ -64,7 +67,7 @@ namespace My_MVVM
         // создаем команды
         private My_Command add_Command;
         public My_Command ADD_command
-        { 
+        {
             get
             {
                 // создадим новую команду как нам добавить новый обьект в нашу кол-цию
@@ -80,18 +83,22 @@ namespace My_MVVM
             }
         }
         private My_Command remove_command;
+
+        // это команда с пар-ом (см. XAML) - в кач-ве пар-ра мы передаем выбранный об-т ('SelectedItem')
+        // поэтому в XAML нужна привязка CommandParameter="{Binding SelectTovar}"
         public My_Command Remove_command
         {
-            get 
+            get
             {
                 return remove_command ?? (remove_command = new My_Command
                 (obj =>
                 {
                     Tovar t1 = obj as Tovar;
-                    if (Tovares != null)
+                    if (t1 != null) // ?????
                         Tovares.Remove(t1);
                 },
-                (obj)=>Tovares.Count > 0)
+                // проверяем, есть ли у нас обь-ты, кот. можно удалять
+                obj => Tovares.Count > 0)
                 );
             }
             set { remove_command = value; }
@@ -100,32 +107,36 @@ namespace My_MVVM
         IFileService fileService;
         DialogInterface dialogInterface;
 
+        // добавляем команды
         private My_Command saveCommand;
         public My_Command SaveCommand
         {
             get
             {
-                return saveCommand ??
-                    (saveCommand = new My_Command(obj =>
+                return saveCommand ?? (saveCommand = new My_Command
+                (obj =>
+                {
+                    try
                     {
-                        try
+                        if (dialogInterface.SaveFileDialog() == true)
                         {
-                            if (dialogInterface.SaveFileDialog() == true)
-                            {
-                                fileService.Save(dialogInterface.FilePath, Tovares.ToList());
-                                dialogInterface.Show_my("File saved");
-                            }
+                            fileService.Save(dialogInterface.FilePath, Tovares.ToList());
+                            dialogInterface.Show_my("File saved");
                         }
-                        catch (Exception ex) { dialogInterface.Show_my(ex.Message); }
                     }
-                    )
-                    );
+                    catch (Exception ex)
+                    { 
+                        dialogInterface.Show_my(ex.Message);
+                    }
+                }
+                )
+                );
             }
         }
 
         private My_Command openCommand;
-        private Class_Dialog class_Dialog;
-        private JsonSerialFile jsonSerialFile;
+        //private Class_Dialog class_Dialog;
+        //private JsonSerialFile jsonSerialFile;
 
         public My_Command OpenCommand
         {
@@ -141,13 +152,14 @@ namespace My_MVVM
                                 var tovars = fileService.Open(dialogInterface.FilePath);
                                 Tovares.Clear();
                                 foreach (var item in tovars)
-                                {
                                     Tovares.Add(item);
-                                }
                                 dialogInterface.Show_my("File opend");
                             }
                         }
-                        catch (Exception ex) { dialogInterface.Show_my(ex.Message); }
+                        catch (Exception ex) 
+                        { 
+                            dialogInterface.Show_my(ex.Message);
+                        }
                     }
                     )
                     );
