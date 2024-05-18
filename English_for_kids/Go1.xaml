@@ -29,11 +29,11 @@
         </Grid.RowDefinitions>
         <Image Grid.RowSpan="11" x:Name="my_image" Source="lion.jpg" Stretch="Fill" Margin="1,0,1,-0.455" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="80,0,0,10.636">
+            <TextBlock Text=" вопрос из 5" Width="87" Margin="0,0,0,1"/>
             <TextBlock x:Name="now"/>
-            <TextBlock Text=" вопрос из 5" Width="87"/>
         </StackPanel>
         <TextBlock Grid.Row="1" Grid.Column="2" Margin="16,0.364,0,31.636" Grid.RowSpan="2">Выберите правильный ответ:</TextBlock>
-        <ListBox Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" x:Name="answer" Margin="12,0.364,10,10.636">
+        <ListBox Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" x:Name="answer" Margin="12,32.364,10,14.636">
         </ListBox>
         <Button Grid.Column="2" Grid.Row="4" Click="Button_Click" Margin="54,9.364,45,9.636" Background="LightBlue" Grid.RowSpan="2">Выбрать</Button>
         <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="6" Margin="0,0.364,0,31.273" Grid.RowSpan="2">
@@ -48,7 +48,9 @@
             <TextBlock x:Name="txt_timer" Visibility="Hidden" Text="Осталось секунд:"/>
             <TextBlock x:Name="txt_timer2" Visibility="Hidden" Width="103"/>
         </StackPanel>
-        <Button Grid.Column="2" Grid.Row="8" Click="Button_Click_1" Margin="48,3.727,31,0.909" Background="Yellow">Закончить игру</Button>
-        <Image Stretch="Fill" gif:ImageBehavior.AnimatedSource="AssuredMiniatureApe-size_restricted.gif" Grid.Column="2" Margin="85,4.091,1,0.545" Grid.Row="9" Grid.RowSpan="2"/>
+        <Button Grid.Column="2" Grid.Row="8" Click="Button_Click_1" Margin="8,10.455,97,0" Background="Yellow" Grid.RowSpan="2" Height="38" VerticalAlignment="Top">Закончить игру</Button>
+        <Image x:Name="it_image" Stretch="Fill" gif:ImageBehavior.AnimatedSource="clock.gif" Grid.Column="2" Margin="110,15.455,12,33.545" Visibility="Hidden" Grid.Row="8" Grid.RowSpan="3"/>
+        <Image x:Name="it_image2" Stretch="Fill" gif:ImageBehavior.AnimatedSource="vopros2.gif" Grid.Column="2" Margin="110,8.455,12,7.545" Visibility="Hidden" Grid.Row="8" Grid.RowSpan="3"/>
+        <Button x:Name="btn_sound" Grid.Column="2" Grid.Row="9" Click="btn_sound_Click" Margin="7,22.455,97,24.545" Background="Yellow" Content="Выключить звук" Grid.RowSpan="2"/>
     </Grid>
 </Window>

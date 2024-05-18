@@ -29,20 +29,27 @@ namespace English_for_kids
             for (int i = 0; i < players.Count; i++)
                 players[i].Number = i + 1;
 
-            listbox1.Items.Add("№");
-            listbox2.Items.Add("Имя");
-            listbox3.Items.Add("Фамилия");
-            listbox4.Items.Add("Возраст");
-            listbox5.Items.Add("Очки");
+            //listbox1.Items.Add("№");
+            //listbox2.Items.Add("Имя");
+            //listbox3.Items.Add("Фамилия");
+            //listbox4.Items.Add("Возраст");
+            //listbox5.Items.Add("Очки");
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    listbox1.Items.Add(players[i].Number);
+            //    listbox2.Items.Add(players[i].First_name);
+            //    listbox3.Items.Add(players[i].Last_name);
+            //    listbox4.Items.Add(players[i].Age);
+            //    listbox5.Items.Add(players[i].Rating); 
+            //}
+
+            List<Player> top_players = new List<Player>();
 
             for (int i = 0; i < 5; i++)
-            {
-                listbox1.Items.Add(players[i].Number);
-                listbox2.Items.Add(players[i].First_name);
-                listbox3.Items.Add(players[i].Last_name);
-                listbox4.Items.Add(players[i].Age);
-                listbox5.Items.Add(players[i].Rating); 
-            }
+                top_players.Add(players[i]);
+
+            dg_pl.ItemsSource = top_players;
         }
     }
 }

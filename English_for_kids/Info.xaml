@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
         mc:Ignorable="d"
-        Title="Info" Height="450" Width="800">
-    <Grid>
-        <TextBlock>Эта игра была разработана с целью изучения английского языка</TextBlock>
-    </Grid>
+        Title="Info" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <TextBlock>Это образовательное приложение было разработано с целью </TextBlock>
+        <TextBlock>изучения английского языка.</TextBlock>
+        <TextBlock/>
+        <TextBlock> Оно расчитано на детей строго от 3 до 18 лет.</TextBlock>
+        <TextBlock/>
+        <TextBlock>Для простоты использования есть все необходимые подсказки, </TextBlock>
+        <TextBlock>а с помощью настройки специальных параметров вы можете </TextBlock>
+        <TextBlock>изменять процесс обучения и делать его еще более интересным.</TextBlock>
+        <TextBlock/>
+        <TextBlock>В данном приложении используются большие цветные картинки, </TextBlock>
+        <TextBlock>а также встроена музыка для того, чтобы Вашему ребенку было </TextBlock>
+        <TextBlock> интересно изучать английский язык!</TextBlock>
+    </StackPanel>
 </Window>

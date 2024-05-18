@@ -23,9 +23,12 @@ namespace English_for_kids
     /// </summary>
     public partial class Settings : Window
     {
+        MediaPlayer media_pl = new MediaPlayer();
         bool exicting = false;
         public Settings()
         {
+            media_pl.Open(new Uri("C:\\Users\\Nadya\\source\\repos\\WpfApp1\\English_for_kids\\audio2.mp3"));
+            media_pl.Play();
             InitializeComponent();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +45,7 @@ namespace English_for_kids
                             if (!exicting)
                             {
                                 MessageBox.Show("Данные сохранены!");
+                                media_pl.Stop();
                                 Welcome f2 = new Welcome(txt_name.Text, txt_lastname.Text, Convert.ToInt32(txt_age.Text), exicting);
                                 f2.Show();
                                 Close();
@@ -70,6 +74,7 @@ namespace English_for_kids
                                 if (flag)
                                 {
                                     MessageBox.Show("Данные верны! Такой игрок существует!");
+                                    media_pl.Stop();
                                     Welcome f2 = new Welcome(txt_name.Text, txt_lastname.Text, age, exicting);
                                     f2.Show();
                                     Close();
@@ -148,10 +153,11 @@ namespace English_for_kids
         private void info_Click(object sender, RoutedEventArgs e)
         {
             Info info_form = new Info();
-            info_form.Show();
+            info_form.ShowDialog();
         }
         private void exit_player_Click(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             MessageBox.Show("До новых встреч!");
             Close();
         }

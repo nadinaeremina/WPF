@@ -25,14 +25,36 @@ namespace English_for_kids
     public partial class Go2 : Window
     {
         string first_name, last_name, my_str, new_str = "";
-        List<string> words = new List<string>();
         string[] right_answers = { "key", "cake", "car", "sun", "house" };
         int ind1 = 0, ind2 = 1, ind3 = 2, right = 0, wrong = 0, inner_wrong = 1, limit_wrong = 5, left = 1, ind_right = 0, count = 60, age;
+        bool sound = false;
+
+        private void btn_sound_Click(object sender, RoutedEventArgs e)
+        {
+            if (sound)
+            {
+                btn_sound.Content = "Включить звук";
+                media_pl.Stop();
+            }
+            else
+            {
+                btn_sound.Content = "Выключить звук";
+                media_pl.Play();
+            }
+            sound = !sound;
+        }
+
         bool flag = false, existing;
+
+        List<string> words = new List<string>();
         DispatcherTimer dt = new DispatcherTimer();
+        MediaPlayer media_pl = new MediaPlayer();
 
         public Go2(bool check, bool check2, bool check3, string str1, string str2, int agee, bool exist)
         {
+            media_pl.Open(new Uri("C:\\Users\\Nadya\\source\\repos\\WpfApp1\\English_for_kids\\audio4.mp3"));
+            media_pl.Play();
+
             first_name = str1;
             last_name = str2;
             age = agee;
@@ -72,10 +94,13 @@ namespace English_for_kids
             {
                 txt_timer.Visibility = Visibility.Visible;
                 txt_timer2.Visibility = Visibility.Visible;
+                it_image.Visibility = Visibility.Visible;
                 dt.Tick += new EventHandler(Show_timer);
                 dt.Interval = TimeSpan.FromSeconds(1);
                 dt.Start();
             }
+            if (check == false)
+                it_image2.Visibility = Visibility.Visible;
             if (check2 == true)
                 limit_wrong = 3;
             if (check3 == true)
@@ -104,6 +129,7 @@ namespace English_for_kids
                         if (wrong == limit_wrong)
                         {
                             System.Windows.MessageBox.Show("Вы допустили максимальное количество ошбок! Игра закончилась! Вы набрали 0 очков!");
+                            media_pl.Stop();
                             Settings set = new Settings();
                             set.Show();
                             Close();
@@ -209,6 +235,8 @@ namespace English_for_kids
                             //writer.Close();
                         }    
                     }
+
+                    media_pl.Stop();
                     Settings set = new Settings();
                     set.Show();
                     Close();
@@ -220,6 +248,7 @@ namespace English_for_kids
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             System.Windows.MessageBox.Show("До новых встреч!");
             Settings set = new Settings();
             set.Show();
@@ -228,7 +257,17 @@ namespace English_for_kids
 
         private void Show_timer(object sender, EventArgs e)
         {
-            txt_timer2.Text = (--count).ToString();
+            if (txt_timer2.Text != "0")
+                txt_timer2.Text = (--count).ToString();
+            else
+            {
+                dt.Stop();
+                right = 0;
+                System.Windows.MessageBox.Show($"К сожалению, Вам не хватило времени! Вы набрали {right} очков"); media_pl.Stop();
+                Settings set = new Settings();
+                set.Show();
+                Close();
+            }    
         }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:English_for_kids"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com" 
         mc:Ignorable="d"
         Title="Меню" Height="500" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Margin="0,0,472,21">
@@ -20,7 +21,7 @@
                     <MenuItem Name="info" Click="info_Click" Header="Справка"></MenuItem>
                 </MenuItem>
             </Menu>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Width="791">
                 <Image Width="544" Source="play.jpg" Height="449"/>
                 <StackPanel x:Name="st_panel_auto" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Left" Width="205" Visibility="Hidden">
                     <TextBlock x:Name="new_or_exist" Background="Yellow" FontStyle="Italic"></TextBlock>

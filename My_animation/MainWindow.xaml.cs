@@ -31,10 +31,5 @@ namespace My_animation
             };
             dg_student.ItemsSource = students;
         }
-
-        private void dg_student_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

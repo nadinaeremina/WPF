@@ -10,12 +10,15 @@
     <Grid>
         <!--'AutoGenerateColumns' -автомат. генерация колонок-->
         <!--'ItemSource'-привязка по ключу-->
-        <DataGrid x:Name="dg_student" AutoGenerateColumns="True" HorizontalGridLinesBrush="LightBlue" RowBackground="LightGreen" AlternatingRowBackground="Aquamarine" SelectionChanged="dg_student_SelectionChanged"><!--ItemsSource="{DynamicResource ResourceKey=students}"--> 
+        <DataGrid x:Name="dg_student" AutoGenerateColumns="True" HorizontalGridLinesBrush="LightBlue" RowBackground="LightGreen" AlternatingRowBackground="Aquamarine">
+            <!--ItemsSource="{DynamicResource ResourceKey=students}"-->
             <!--<DataGrid.Resources>
                 <col:ArrayList x:Key="students">
-                    --><!--<local:Student age="20" Lname="Ivanov" Fname="Ivan"/>
+                    -->
+            <!--<local:Student age="20" Lname="Ivanov" Fname="Ivan"/>
                     <local:Student age="25" Lname="Petrov" Fname="Petr"/>
-                    <local:Student age="20" Lname="Ivanova" Fname="Elena"/>--><!--
+                    <local:Student age="20" Lname="Ivanova" Fname="Elena"/>-->
+            <!--
                 </col:ArrayList>
             </DataGrid.Resources>-->
             <DataGrid.Columns>
@@ -24,6 +27,5 @@
                 <DataGridTextColumn Header="Имя" Binding="{Binding Path=Fname}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DatePicker Name="dp1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,127,0,0"/>
     </Grid>
 </Window>

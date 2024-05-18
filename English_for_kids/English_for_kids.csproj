@@ -167,28 +167,10 @@
     <Resource Include="English.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Animation.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="a.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="b.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="c.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Animation1.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="apple.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="animals.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="plants.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="lion.jpg" />
@@ -206,7 +188,13 @@
     <Resource Include="ki.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AssuredMiniatureApe-size_restricted.gif" />
+    <Resource Include="clock.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="vopros1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Vopros2.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

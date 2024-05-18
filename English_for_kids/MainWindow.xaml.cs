@@ -22,9 +22,12 @@ namespace English_for_kids
     /// </summary>
     public partial class MainWindow : Window
     {
+        MediaPlayer media_pl = new MediaPlayer();
         DispatcherTimer dt = new DispatcherTimer();
         public MainWindow()
         {
+            media_pl.Open(new Uri("C:\\Users\\Nadya\\source\\repos\\WpfApp1\\English_for_kids\\audio1.mp3"));
+            media_pl.Play();
             InitializeComponent();
             btn_start.Visibility = Visibility.Hidden;
             Loading();
@@ -52,12 +55,13 @@ namespace English_for_kids
                 } 
             } while (true);
             dt.Tick += new EventHandler(Show_timer);
-            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Interval = TimeSpan.FromSeconds(0.5);
             dt.Start();
         }
 
         private void btn_start_Click(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             Settings f1 = new Settings();
             f1.Show();
             Close();
@@ -65,6 +69,7 @@ namespace English_for_kids
 
         private void btn_exit_Click(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             Close();
         }
     }

@@ -19,11 +19,14 @@ namespace English_for_kids
     /// </summary>
     public partial class Welcome : Window
     {
+        MediaPlayer media_pl = new MediaPlayer();
         string first_namee, last_namee;
         int agee;
         bool exist;
         public Welcome(string name, string last_name, int age, bool exicting)
         {
+            media_pl.Open(new Uri("C:\\Users\\Nadya\\source\\repos\\WpfApp1\\English_for_kids\\audio3.mp3"));
+            media_pl.Play();
             InitializeComponent();
             welcome.Title = $"Добро пожаловать, {name}!";
             first_namee = name;
@@ -34,14 +37,15 @@ namespace English_for_kids
 
         private void choose_Clickc(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             Go1 form_go1 = new Go1(check_time.IsChecked.Value, wrongs.IsChecked.Value, onemore_try.IsChecked.Value, first_namee, last_namee, agee, exist);
-
             form_go1.Show();
             Close();
         }
 
         private void choose2_Clickc(object sender, RoutedEventArgs e)
         {
+            media_pl.Stop();
             Go2 form_go2 = new Go2(check_time2.IsChecked.Value, wrongs2.IsChecked.Value, onemore_try2.IsChecked.Value, first_namee, last_namee, agee, exist);
             form_go2.Show();
             Close();
@@ -50,6 +54,7 @@ namespace English_for_kids
         private void btn_exit_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Пока!");
+            media_pl.Stop();
             Close();
         }
     }
